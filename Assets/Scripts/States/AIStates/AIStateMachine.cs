@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PlayerState
+public abstract class AIState
 {
     protected GameManager m_gameManager;
-    public PlayerState(GameManager gm)
+    public AIState(GameManager gm)
     {
         m_gameManager = gm;
     }
