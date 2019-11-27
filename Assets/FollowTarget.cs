@@ -5,23 +5,19 @@ using UnityEngine.AI;
 
 public class FollowTarget : MonoBehaviour
 {
-    private GameObject playerPos;
-    private Transform target;
+    public Transform target;
+
     private NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        target = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         agent.SetDestination(target.position);
 
     }
