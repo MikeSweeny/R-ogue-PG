@@ -35,7 +35,7 @@ public class EnemyPool : MonoBehaviour
         for (int i = 0; i < amountToPool; i++)
         {
             //increase the size of the pool if it is less than the amount desired in the wave
-            if (amountToPool <= waveSize)
+            if (amountToPool <= (waveSize -1))
             {
                 amountToPool++;
             }
@@ -46,22 +46,14 @@ public class EnemyPool : MonoBehaviour
             if (GetEnemyType() <= 6)
             {
                 obj = (GameObject)Instantiate(enemyTypes[0]);
-                Debug.Log(obj.name);
-
             }
             else if (GetEnemyType() > 6 && GetEnemyType() <= 8)
             {
                 obj = (GameObject)Instantiate(enemyTypes[1]);
-                Debug.Log(obj.name);
-
-
             }
             else
             {
                 obj = (GameObject)Instantiate(enemyTypes[2]);
-                Debug.Log(obj.name);
-
-
             }
             //Set all gameobjects to an inactive state
             obj.SetActive(true);
