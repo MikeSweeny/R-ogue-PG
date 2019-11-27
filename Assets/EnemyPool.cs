@@ -40,20 +40,27 @@ public class EnemyPool : MonoBehaviour
                 amountToPool++;
             }
             //Create for loop that instantiates the objectToPool the specified number of times declared in numberToPool
-            
-            if (randomEnemyType <= 6)
+
+            GetEnemyType();
+
+            if (GetEnemyType() <= 6)
             {
                 obj = (GameObject)Instantiate(enemyTypes[0]);
+                Debug.Log(obj.name);
 
             }
-            else if (randomEnemyType > 6 && randomEnemyType <= 8)
+            else if (GetEnemyType() > 6 && GetEnemyType() <= 8)
             {
                 obj = (GameObject)Instantiate(enemyTypes[1]);
+                Debug.Log(obj.name);
+
 
             }
             else
             {
                 obj = (GameObject)Instantiate(enemyTypes[2]);
+                Debug.Log(obj.name);
+
 
             }
             //Set all gameobjects to an inactive state
@@ -82,8 +89,10 @@ public class EnemyPool : MonoBehaviour
         return null;
     }
     // Update is called once per frame
-    void Update()
+    private int GetEnemyType()
     {
         randomEnemyType = Random.Range(0, 10);
+        Debug.Log(randomEnemyType);
+        return randomEnemyType;
     }
 }
