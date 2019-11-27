@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatePaused : GameState
+public class G_StatePaused : State
 {
-    public StatePaused(GameManager gm) : base(gm) { }
+    public G_StatePaused(GameManager gm) : base(gm) { }
 
 
     // Start is called before the first frame update
@@ -28,11 +28,11 @@ public class StatePaused : GameState
     }
     public void TogglePause()
     {
-        if (GameManager.Instance.m_isPaused)
+        if (GameManager.Instance.currentState == GameManager.Instance.statePaused)
         {
             UnPauseGame();
         }
-        else if (!(GameManager.Instance.m_isPaused))
+        else
         {
             PauseGame();
         }
@@ -41,7 +41,6 @@ public class StatePaused : GameState
     public void PauseGame()
     {
         Time.timeScale = 0;
-        GameManager.Instance.m_isPaused = true;
         GameManager.Instance.m_pauseMenu.SetActive(true);
     }
 
@@ -49,7 +48,6 @@ public class StatePaused : GameState
     {
         GameManager.Instance.NewGameState(GameManager.Instance.statePlaying);
         Time.timeScale = 1;
-        GameManager.Instance.m_isPaused = false;
         GameManager.Instance.m_pauseMenu.SetActive(false);
     }
 

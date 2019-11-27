@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pj_StateInPool : PlayerState
+public class Pj_StateInPool : State
 {
     public Pj_StateInPool(GameManager gm) : base(gm) { }
     public override void StateEnter()

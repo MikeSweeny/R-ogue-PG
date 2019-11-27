@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // All managers should hold their respective object's state machine 
+    public G_StatePaused statePaused { get; set; }
+    public G_StateStartMenu stateMenu { get; set; }
+    public G_StatePlaying statePlaying { get; set; }
 
-    public StateDead stateDead { get; set; }
-    public StatePaused statePaused { get; set; }
-    public StateMenu stateMenu { get; set; }
-    public StatePlaying statePlaying { get; set; }
-    public GameState currentState;
-
+    public State currentState;
     public static GameManager Instance = null;
-    public bool m_isPaused = false;
+
+    // Objects for state machine to handle
     public GameObject m_pauseMenu;
     public GameObject m_deathMenu;
 
     private void Awake()
     {
-        stateMenu = new StateMenu(this);
-        statePlaying = new StatePlaying(this);
-        statePaused = new StatePaused(this);
-        stateDead = new StateDead(this);
+        stateMenu = new G_StateStartMenu(this);
+        statePlaying = new G_StatePlaying(this);
+        statePaused = new G_StatePaused(this);
 
         SetInstance();
         UnPauseGame();
@@ -49,7 +48,7 @@ public class GameManager : MonoBehaviour
         statePaused.UnPauseGame();
     }
 
-    public void NewGameState(GameState newState)
+    public void NewGameState(State newState)
     {
         if (currentState != null)
         {
@@ -61,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        stateDead.ResetGame();
+        //stateDead.ResetGame();
     }
 
 }

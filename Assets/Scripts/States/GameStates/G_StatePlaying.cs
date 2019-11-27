@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatePlaying : GameState
+public class G_StatePlaying : State
 {
-    public StatePlaying(GameManager gm) : base(gm) { }
+    public G_StatePlaying(GameManager gm) : base(gm) { }
 
     public override void StateEnter()
     {
