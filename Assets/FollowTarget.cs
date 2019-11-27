@@ -22,8 +22,8 @@ public class FollowTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        target = player.position;
-        agent.SetDestination(target.position);
+        //target = player.transform.position;
+       // agent.SetDestination(player.position);
 
     }
 }
