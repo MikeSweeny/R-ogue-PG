@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_StateInCombat : State
+public class AI_StateDead : State
 {
-    public P_StateInCombat(GameManager gm) : base(gm) { }
+    public AI_StateDead(GameManager gm) : base(gm) { }
     public override void StateEnter()
     {
 
