@@ -18,7 +18,7 @@ public class PerksManager : MonoBehaviour
     private bool isUnique = false;  // Sets the Perk to Unique or not, so we can only pick up one or not
     private int RandPerk;
 
-    public float timer;
+    private static float timer;
 
     private void Awake()
     {

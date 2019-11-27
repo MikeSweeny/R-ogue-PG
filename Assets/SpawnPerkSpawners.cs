@@ -9,6 +9,8 @@ public class SpawnPerkSpawners : MonoBehaviour
     public GameObject PerkSpawners;
     private void FixedUpdate()
     {
+        // Change this to on Wave 5 Do this
+
         timer += Time.deltaTime * 10;
         if (timer >= 50)
         {
