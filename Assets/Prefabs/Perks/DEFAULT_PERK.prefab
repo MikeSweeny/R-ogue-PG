@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3628696263509170912}
   - component: {fileID: 3628696263950960103}
   m_Layer: 0
-  m_Name: CubieBeveled
+  m_Name: DEFAULT_PERK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 34a2d4fc8f422c345a4cc739f3ee3b81, type: 2}
+  - {fileID: 2100000, guid: 5c623d53aca45c44586ec2d14fef488e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
