@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_StateIdle : PlayerState
+public class P_StateIdle : State
 {
     public P_StateIdle(GameManager gm) : base(gm) { }
     public override void StateEnter()
