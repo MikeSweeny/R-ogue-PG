@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pj_StateFired : PlayerState
+public class Pj_StateFired : State
 {
     public Pj_StateFired(GameManager gm) : base(gm) { }
     public override void StateEnter()
