@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Lever
+  - BloodAlter
   layers:
   - Default
   - TransparentFX
