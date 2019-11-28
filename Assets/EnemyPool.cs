@@ -8,7 +8,7 @@ public class EnemyPool : MonoBehaviour
     public static EnemyPool SharedInstance;
 
     //Create a list of Game Objects called enemyObjects
-    private List<GameObject> enemeyObjects;
+    public List<GameObject> enemyObjects;
     //Create a list of Game Objects to store the enemy types
     public  List<GameObject> enemyTypes;
     //create an array of game objects that are then added to the enemyObjects List
@@ -26,11 +26,14 @@ public class EnemyPool : MonoBehaviour
     private void Awake()
     {
         SharedInstance = this;
+
+        CreatePool();
+
     }
     // Start is called before the first frame update
     private void CreatePool()
     {
-        enemeyObjects = new List<GameObject>();
+        enemyObjects = new List<GameObject>();
 
         for (int i = 0; i < amountToPool; i++)
         {
@@ -59,21 +62,20 @@ public class EnemyPool : MonoBehaviour
             obj.SetActive(false);
 
             //Add the now inactive gameobject to the enemyObjects List
-            enemeyObjects.Add(obj);
+            enemyObjects.Add(obj);
             
         }
     }
     //Since this function 
     public GameObject GetPooledObject()
     {
-        CreatePool();
         //Create for loop to iterate throuh the enemyObjects List
-        for (int i = 0; i < enemeyObjects.Count; i++)
+        for (int i = 0; i < enemyObjects.Count; i++)
         {
             //If the object is active, it progresses to the next object in the List, if not exit the method
-            if (!enemeyObjects[i].activeInHierarchy)
+            if (!enemyObjects[i].activeInHierarchy)
             {
-                return enemeyObjects[i];
+                return enemyObjects[i];
             }
         }
         //If there is no currently active objects, exit and return nothing
