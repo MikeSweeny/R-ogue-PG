@@ -6,6 +6,10 @@ public class Interactable : MonoBehaviour
 {
     public bool isOn = false;
 
+    protected virtual void Act()
+    {
+
+    }
     public bool getIsOn()
     {
         return isOn;

@@ -35,14 +35,14 @@ public class BloodAlter : Interactable
     }
     public void PlayerInteract()
     {
-        if (isOn && currentHealth < maxHealth && currentBlood > minBlood && currentBlood <= maxBlood)
-        {
-            bones = bones - 1;
-            currentBlood = currentBlood - 1;
-            currentHealth = currentHealth + 1;
-            Vector3 temp = blood.transform.position;
-            temp.z -= 1;
-            Vector3 newPosition = new Vector3(blood.transform.position.x, blood.transform.position.y, temp.z);
-        }
+        //if (isOn && currentHealth < maxHealth && currentBlood > minBlood && currentBlood <= maxBlood)
+        //{
+        //    bones = bones - 1;
+        //    currentBlood = currentBlood - 1;
+        //    currentHealth = currentHealth + 1;
+        //    Vector3 temp = blood.transform.position;
+        //    temp.z -= 1;
+        //    Vector3 newPosition = new Vector3(blood.transform.position.x, blood.transform.position.y, temp.z);
+        //}
     }
 }
