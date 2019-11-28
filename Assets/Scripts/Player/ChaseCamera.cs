@@ -4,80 +4,54 @@ using UnityEngine;
 
 public class ChaseCamera : MonoBehaviour
 {
-    public Transform car;
-    public float rotationDamping = 3f;
-    public float heightDamping = 2f;
-    private float desiredAngle = 0;
-    private float distance = 8;
-    private float desiredDistance;
-    private float height = 3.75f;
-    private bool cameraReset = false;
+    public GameObject target;
+    public float distance = 12.0f;
 
-    private void Start()
+    public float yMinLimit = -80f;
+    public float yMaxLimit = 80.0f;
+    public float autoRotSpeed = 3.0f;
+
+    float xDeg = 0.0f;
+    float yDeg = 0.0f;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        desiredDistance = distance;
+        Vector3 angles = transform.eulerAngles;
+        xDeg = angles.x;
+        yDeg = angles.y;
     }
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void LateUpdate()
     {
-        float currentAngle = transform.eulerAngles.y;
-        float currentHeight = transform.position.y;
+        RotateBehindTarget();
 
-        desiredAngle = car.eulerAngles.y;
+        yDeg = ClampAngle(yDeg, yMinLimit, yMaxLimit);
+        Quaternion rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
-        // if backing up
-        if (Input.GetKey(KeyCode.S))
-        {
-            Vector3 localVelocity = car.InverseTransformDirection(car.GetComponent<Rigidbody>().velocity);
-            if (localVelocity.z < -0.5f)
-            {
-                desiredAngle += 180;
-            }
-        }
+        transform.rotation = rotation;
+        transform.LookAt(target.transform);
 
-
-        float desiredHeight = car.position.y + height;
-
-        currentAngle = Mathf.LerpAngle(currentAngle, desiredAngle, rotationDamping * Time.deltaTime);
-        currentHeight = Mathf.Lerp(currentHeight, desiredHeight, heightDamping * Time.deltaTime);
-
-        Quaternion currentRotation = Quaternion.Euler(0, currentAngle, 0);
-
-        Vector3 finalPosition = car.position - (currentRotation * Vector3.forward * distance);
-        finalPosition.y = currentHeight;
-        transform.position = finalPosition;
-        transform.LookAt(car);
     }
 
-    private void OnTriggerEnter(Collider other)
+    // Keeps the camera behind the player
+    private void RotateBehindTarget()
     {
-        if (other.gameObject.tag != "ButtRocket")
-        {
-            distance -= 2f;
-        }
+        float targetRotationAngle = target.transform.eulerAngles.y;
+        float currentRotationAngle = transform.eulerAngles.y;
+        xDeg = Mathf.LerpAngle(currentRotationAngle, targetRotationAngle, autoRotSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerExit(Collider other)
+    // Makes it so you cannot go over 90 degrees up and down
+    float ClampAngle(float angle, float min, float max)
     {
-        if (other.gameObject.tag != "ButtRocket")
-        {
-            CameraSlowReset();
-        }
-    }
-    private void Update()
-    {
-        if (distance <= desiredDistance && cameraReset)
-        {
-            distance += 0.01f;
-            return;
-        }
-        cameraReset = false;
-    }
+        if (angle < -360f)
+            angle += 360f;
 
-    private void CameraSlowReset()
-    {
-        cameraReset = true;
+        if (angle > 360f)
+            angle -= 360f;
+
+        return Mathf.Clamp(angle, min, max);
     }
 }
-
-

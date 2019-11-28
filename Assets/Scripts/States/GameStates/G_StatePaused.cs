@@ -41,14 +41,15 @@ public class G_StatePaused : State
     public void PauseGame()
     {
         Time.timeScale = 0;
-        GameManager.Instance.m_pauseMenu.SetActive(true);
+        //GameManager.Instance.m_pauseMenu.SetActive(true);
     }
 
     public void UnPauseGame()
     {
         GameManager.Instance.NewGameState(GameManager.Instance.statePlaying);
         Time.timeScale = 1;
-        GameManager.Instance.m_pauseMenu.SetActive(false);
+
+        //Set your pause screen to inactive here
     }
 
 }

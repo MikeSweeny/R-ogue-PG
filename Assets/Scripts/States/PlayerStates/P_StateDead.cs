@@ -23,12 +23,12 @@ public class P_StateDead : State
 
     public void ResetGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene("SampleScene");
     }
 
     public void ShowDeathMenu()
     {
         Time.timeScale = 0;
-        GameManager.Instance.m_deathMenu.SetActive(true);
+        //GameManager.Instance.m_deathMenu.SetActive(true);
     }
 }
