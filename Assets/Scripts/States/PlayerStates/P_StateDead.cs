@@ -29,6 +29,6 @@ public class P_StateDead : State
     public void ShowDeathMenu()
     {
         Time.timeScale = 0;
-        GameManager.Instance.m_deathMenu.SetActive(true);
+        //GameManager.Instance.m_deathMenu.SetActive(true);
     }
 }

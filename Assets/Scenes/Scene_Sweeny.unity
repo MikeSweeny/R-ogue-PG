@@ -952,8 +952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412221ad925630445aff970ec69ef13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pauseMenu: {fileID: 1047383756}
-  m_deathMenu: {fileID: 598620726}
 --- !u!114 &540483589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2974,6 +2972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 162235515517860878, guid: 4a650e4916b932040983f65bf8033cb4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a650e4916b932040983f65bf8033cb4, type: 3}
