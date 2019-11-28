@@ -4,45 +4,72 @@ using UnityEngine;
 
 public class ChaseCamera : MonoBehaviour
 {
-    public Transform player;
-    public float rotationDamping = 3f;
-    public float heightDamping = 2f;
-    private float desiredAngle = 0;
-    private float distance = 8;
-    private float desiredDistance;
-    private float height = 3.75f;
-    private bool cameraReset = false;
+    public GameObject target;
+    public float heightOffset = 1.7f;
+    public float distance = 12.0f;
 
-    private void Start()
+    public float offsetFromWall = 0.1f;
+    public float maxDistance = 20f;
+    public float minDistance = 0.6f;
+    public float xSpeed = 200.0f;
+    public float ySpeed = 200.9f;
+    public float yMinLimit = -80f;
+    public float yMaxLimit = 80.0f;
+    public float autoRotSpeed = 3.0f;
+
+    public LayerMask collisionLayers = -1;
+    public bool allowMouseInputX = true;
+    public bool allowMouseInputY = true;
+
+
+    float xDeg = 0.0f;
+    float yDeg = 0.0f;
+    float currentDistance;
+    float desiredDistance;
+    bool rotBehind = false;
+    bool mouseSideButton = false;
+    // Start is called before the first frame update
+    void Start()
     {
+        Vector3 angles = transform.eulerAngles;
+        xDeg = angles.x;
+        yDeg = angles.y;
+        currentDistance = distance;
         desiredDistance = distance;
     }
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void LateUpdate()
     {
-        float currentAngle = transform.eulerAngles.y;
-        float currentHeight = transform.position.y;
+        yDeg = ClampAngle(yDeg, yMinLimit, yMaxLimit);
 
-        desiredAngle = player.eulerAngles.y;
-        
-        currentAngle = Mathf.LerpAngle(currentAngle, desiredAngle, rotationDamping * Time.deltaTime);
+        Quaternion rotation = Quaternion.Euler(yDeg, xDeg, 0);
 
-        Quaternion currentRotation = Quaternion.Euler(0, currentAngle, 0);
+        desiredDistance = Mathf.Clamp(desiredDistance, minDistance, maxDistance);
 
-        Vector3 finalPosition = player.position - (currentRotation * Vector3.forward * distance);
-        finalPosition.y = currentHeight;
-        transform.position = finalPosition;
-        transform.LookAt(player);
+
+        Vector3 vTargetOffset = new Vector3(0, -heightOffset, 0);
+        Vector3 position = target.transform.position - (rotation * Vector3.forward * desiredDistance + vTargetOffset);
+
+        Vector3 trueTargetPosition = new Vector3(target.transform.position.x, target.transform.position.y + heightOffset, target.transform.position.z);
+
+        currentDistance = Mathf.Clamp(currentDistance, minDistance, maxDistance);
+
+        position = target.transform.position - (rotation * Vector3.forward * currentDistance + vTargetOffset);
+
+        transform.rotation = rotation;
+        transform.position = position;
+
     }
 
-    private void Update()
+    float ClampAngle(float angle, float min, float max)
     {
-        if (distance <= desiredDistance && cameraReset)
-        {
-            distance += 0.01f;
-            return;
-        }
+        if (angle < -360f)
+            angle += 360f;
+
+        if (angle > 360f)
+            angle -= 360f;
+
+        return Mathf.Clamp(angle, min, max);
     }
 }
-
-

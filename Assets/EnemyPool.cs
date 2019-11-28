@@ -28,14 +28,14 @@ public class EnemyPool : MonoBehaviour
         SharedInstance = this;
     }
     // Start is called before the first frame update
-    void Start()
+    private void CreatePool()
     {
         enemeyObjects = new List<GameObject>();
 
         for (int i = 0; i < amountToPool; i++)
         {
             //increase the size of the pool if it is less than the amount desired in the wave
-            if (amountToPool <= waveSize)
+            if (amountToPool <= waveSize - 1)
             {
                 amountToPool++;
             }
@@ -46,27 +46,17 @@ public class EnemyPool : MonoBehaviour
             if (GetEnemyType() <= 6)
             {
                 obj = (GameObject)Instantiate(enemyTypes[0]);
-                Debug.Log(obj.name);
-
             }
             else if (GetEnemyType() > 6 && GetEnemyType() <= 8)
             {
                 obj = (GameObject)Instantiate(enemyTypes[1]);
-                Debug.Log(obj.name);
-
-
             }
             else
             {
                 obj = (GameObject)Instantiate(enemyTypes[2]);
-                Debug.Log(obj.name);
-
-
             }
             //Set all gameobjects to an inactive state
-            obj.SetActive(true);
-
-            
+            obj.SetActive(false);
 
             //Add the now inactive gameobject to the enemyObjects List
             enemeyObjects.Add(obj);
@@ -74,13 +64,14 @@ public class EnemyPool : MonoBehaviour
         }
     }
     //Since this function 
-    public GameObject GetPooledObject(string Tag)
+    public GameObject GetPooledObject()
     {
+        CreatePool();
         //Create for loop to iterate throuh the enemyObjects List
         for (int i = 0; i < enemeyObjects.Count; i++)
         {
             //If the object is active, it progresses to the next object in the List, if not exit the method
-            if (!enemeyObjects[i].activeInHierarchy && enemeyObjects[i].name == Tag)
+            if (!enemeyObjects[i].activeInHierarchy)
             {
                 return enemeyObjects[i];
             }
@@ -88,11 +79,12 @@ public class EnemyPool : MonoBehaviour
         //If there is no currently active objects, exit and return nothing
         return null;
     }
-    // Update is called once per frame
+    // Generate a random enemy type
     private int GetEnemyType()
     {
+        //get a random number from 0-10
         randomEnemyType = Random.Range(0, 10);
-        Debug.Log(randomEnemyType);
+        //return the value
         return randomEnemyType;
     }
 }
