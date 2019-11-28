@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +12,9 @@ public class CharacterStats
         get
         {
             // If the numbers need to be recalculated or not, so we are not calling CalculateFinalValue() as often
-            if (isDirty)
+            if (isDirty || BaseValue != lastBaseValue)
             {
+                lastBaseValue = BaseValue;
                 _value = CalculateFinalValue();
                 isDirty = false;
 
@@ -23,12 +25,15 @@ public class CharacterStats
 
     private bool isDirty = true;
     private float _value;
+    private float lastBaseValue = float.MinValue;
     private readonly List<StatModifier> statModifiers;
+    public readonly ReadOnlyCollection<StatModifier> StatModifiers;
 
     public CharacterStats(float baseValue)
     {
         BaseValue = baseValue;
         statModifiers = new List<StatModifier>();
+        StatModifiers = statModifiers.AsReadOnly();
 
     }
 
@@ -41,6 +46,15 @@ public class CharacterStats
         statModifiers.Sort();
 
     }
+    public bool RemoveModifier(StatModifier mod)
+    {
+        if(statModifiers.Remove(mod))
+        {
+            isDirty = true;
+            return true;
+        }
+        return false;
+    }
 
     private int CompareModifierOrder(StatModifier a, StatModifier b)
     {
@@ -52,25 +66,28 @@ public class CharacterStats
         return 0; // if (a.Order == b.Order)
     }
 
-    public bool RemoveModifier(StatModifier mod)
-    {
-        isDirty = true;
-        return statModifiers.Remove(mod);
-    }
-
     private float CalculateFinalValue()
     {
         float finalValue = BaseValue;
+        float sumPercentAdd = 0;
 
         for (int i = 0; i < statModifiers.Count; i++)
         {
             StatModifier mod = statModifiers[i];
 
-            if(mod.Type == StatModType.Flat)
+            if (mod.Type == StatModType.Flat)
             {
                 finalValue += mod.Value;
             }
-            else if (mod.Type == StatModType.Percent)
+            else if (mod.Type == StatModType.PercentAdd)
+            {
+                sumPercentAdd += mod.Value;
+                if (i + 1 >= statModifiers.Count || statModifiers[i + 1].Type != StatModType.PercentAdd)
+                {
+                    finalValue *= 1 + mod.Value;
+                }
+            }
+            else if (mod.Type == StatModType.PercentMult)
             {
                 finalValue *= 1 + mod.Value;
             }
