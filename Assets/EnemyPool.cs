@@ -20,18 +20,19 @@ public class EnemyPool : MonoBehaviour
     //The object we want to add to object pool
     private GameObject obj;
 
-    //This variable represents how large the wave is supposed to be
-    public int waveSize;
+    
 
     private void Awake()
     {
         SharedInstance = this;
 
-        CreatePool();
+        //READ THIS COMMENT         *** When complete, delete this function call ***
+
+        CreatePool(15);
 
     }
     // Start is called before the first frame update
-    private void CreatePool()
+    private void CreatePool(int waveSize)
     {
         enemyObjects = new List<GameObject>();
 
