@@ -24,12 +24,12 @@ public class SceneManager : MonoBehaviour
         playerManager = FindObjectOfType<PlayerManager>();
     }
 
-    PlayerManager GetPlayerManager()
+    public PlayerManager GetPlayerManager()
     {
         return playerManager;
     }
 
-    PlayerController GetPlayerController()
+    public PlayerController GetPlayerController()
     {
         return playerController;
     }

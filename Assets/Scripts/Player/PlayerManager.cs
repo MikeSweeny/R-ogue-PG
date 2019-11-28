@@ -39,7 +39,13 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
+        if (Physics.Raycast(transform.position, fwd, 10))
+            print("There is something in front of the object!");
+        RaycastHit hit;
+        Physics.Raycast(transform.position, transform.forward, out hit, 10);
+        Debug.DrawRay(transform.position, transform.forward, new Color(1, 0, 0.75f, 1), 10);
     }
 
 
