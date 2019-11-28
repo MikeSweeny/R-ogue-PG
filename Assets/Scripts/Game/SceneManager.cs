@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {
-    // Declare any public variables that you want to be able 
-    // to access throughout your scene
-    //     public Player player;
-    private bool usingController;
+    // Public references to anything in the scene
+    PlayerController playerController;
+    PlayerManager playerManager;
+
     public static SceneManager Instance { get; private set; } // static singleton
     void Awake()
     {
-        if (Instance == null) { Instance = this; }
-        else { Destroy(gameObject); }
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         // Cache references to all desired variables
-        //player = FindObjectOfType<Player>();
+        playerController = FindObjectOfType<PlayerController>();
+        playerManager = FindObjectOfType<PlayerManager>();
+    }
+
+    PlayerManager GetPlayerManager()
+    {
+        return playerManager;
+    }
+
+    PlayerController GetPlayerController()
+    {
+        return playerController;
     }
 }

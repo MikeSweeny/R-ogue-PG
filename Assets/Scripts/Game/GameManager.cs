@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
 
     // Objects for state machine to handle
-    public GameObject m_pauseMenu;
-    public GameObject m_deathMenu;
+    //public GameObject m_pauseMenu;
+    //public GameObject m_deathMenu;
 
     private void Awake()
     {
