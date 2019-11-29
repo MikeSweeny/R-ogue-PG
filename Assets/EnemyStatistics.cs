@@ -73,7 +73,7 @@ public class EnemyStatistics : MonoBehaviour
             WeaponRange.radius = range;
         }
 
-        Debug.Log(health);
+
     }
 
     // Update is called once per frame
