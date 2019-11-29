@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        playerManager = SceneManager.Instance.GetPlayerManager();
+        playerManager = SceneManager.playerManager;
         body = GetComponent<Rigidbody>();
         headPosition = transform.GetChild(0).transform;
     }

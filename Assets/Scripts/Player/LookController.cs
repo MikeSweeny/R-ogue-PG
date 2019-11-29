@@ -6,7 +6,8 @@ public class LookController : MonoBehaviour
 {
     // USED FOR MAKING THE PLAYER LOOK WITH MOUSE (ALSO RIGHT ANALOG ON CONTROLLER)
     public float turnSensitivity = 250.0f;
-    public float clampAngle = 90.0f;
+    public float clampAngleUp = 90.0f;
+    public float clampAngleDown = -90.0f;
 
     private float rotY = 0.0f; // rotation around the up/y axis
     private float rotX = 0.0f; // rotation around the right/x axis
@@ -26,7 +27,7 @@ public class LookController : MonoBehaviour
         rotY += mouseX * turnSensitivity * Time.deltaTime;
         rotX += mouseY * turnSensitivity * Time.deltaTime;
 
-        rotX = Mathf.Clamp(rotX, -clampAngle, clampAngle);
+        rotX = Mathf.Clamp(rotX, -10f, clampAngleUp);
 
         Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
         transform.rotation = localRotation;
