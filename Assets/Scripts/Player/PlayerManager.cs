@@ -60,12 +60,13 @@ public class PlayerManager : MonoBehaviour
         {
             if (forwardRaycastHit.transform.gameObject.CompareTag("Interactable"))
             {
-                SceneManager.Instance.GetPlayerController().SetInteractObject(forwardRaycastHit.transform.gameObject.GetComponent<Interactable>());
+                Debug.Log("Looking at: " + forwardRaycastHit.transform.gameObject);
+                SceneManager.playerController.SetInteractObject(forwardRaycastHit.transform.parent.GetComponent<Interactable>());
             }
-        }
-        else
-        {
-            SceneManager.Instance.GetPlayerController().SetInteractObject(null);
+            else
+            {
+                SceneManager.playerController.SetInteractObject(null);
+            }
         }
     }
 
