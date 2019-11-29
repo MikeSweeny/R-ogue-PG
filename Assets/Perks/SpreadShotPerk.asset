@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623db4aa4fb3a5f49839bebae22831c3, type: 3}
+  m_Name: SpreadShotPerk
+  m_EditorClassIdentifier: 
+  name: SpreadShot
+  type: 3
+  pedGem: {fileID: 3628696263511426080, guid: a13d1b085ffa4b3438f55083efd7b6b2, type: 3}
+  displayIcon: {fileID: 21300000, guid: 62ab72b2a1f2bb547997e2921391fb2d, type: 3}
+  description: Adds 2 more projectiles
+  seeking: 0
+  magnet: 0
+  lottery: 0
+  levitate: 0
+  explosive: 0
+  hover: 0
+  spreadCount: 2
+  bonesCollected: 0
+  jumpCount: 0
+  lifesteal: 0
