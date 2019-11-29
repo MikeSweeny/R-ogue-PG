@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             if (interactObject)
             {
+                Debug.Log("Successful Interaction with: " + interactObject);
                 //interactObject.Act();
             }
         }
@@ -56,5 +57,10 @@ public class PlayerController : MonoBehaviour
         {
             // Pause Menu?(probably not)  --  State Change?(probably)
         }
+    }
+
+    public void SetInteractObject(Interactable iObj)
+    {
+        interactObject = iObj;
     }
 }

@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     bool perkPoint = true;
+    float rayCastLength = 10;
+    RaycastHit forwardRaycastHit;
+    GameObject nearbyInteractable;
+    GameObject head;
 
     // Basic Stats
     int currentHealth;
@@ -33,22 +37,53 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+        head = gameObject.transform.GetChild(0).gameObject;
         body = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
     }
 
     private void Update()
     {
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-        if (Physics.Raycast(transform.position, fwd, 10))
-            print("There is something in front of the object!");
-        RaycastHit hit;
-        Physics.Raycast(transform.position, transform.forward, out hit, 10);
-        Debug.DrawRay(transform.position, transform.forward, new Color(1, 0, 0.75f, 1), 10);
+        SetRaycastHitTarget();
+        if (nearbyInteractable && GetRaycastHit())
+        {
+            if (forwardRaycastHit.transform.gameObject.CompareTag("Interactable"))
+            {
+                SceneManager.Instance.GetPlayerController().SetInteractObject(forwardRaycastHit.transform.gameObject.GetComponent<Interactable>());
+            }
+        }
+        else
+        {
+            SceneManager.Instance.GetPlayerController().SetInteractObject(null);
+        }
     }
 
+    private bool GetRaycastHit()
+    {
+        return Physics.Raycast(head.transform.position, head.transform.forward);
+    }
+    private void SetRaycastHitTarget()
+    {
+        Physics.Raycast(head.transform.position, head.transform.forward, out forwardRaycastHit);
+        Debug.DrawRay(head.transform.position, head.transform.forward.normalized * rayCastLength, new Color(1, 0, 0.25f, 1));
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("InteractableRange"))
+        {
+            Debug.Log("Near Interactable");
+            nearbyInteractable = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("InteractableRange"))
+        {
+            nearbyInteractable = null;
+        }
+    }
 
 
     //              GETTERS AND SETTERS             //
