@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     float lookRotation;
     Rigidbody body;
 
-    float jumpPower = 35000;
+    float fallSpeedAdjustor = 2000;
+    float jumpPower = 50000;
     float moveSpeed = 30f;
 
     PlayerManager playerManager;
@@ -28,6 +29,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Making the body fall faster after jumping
+        if (body.velocity.y <= 0.4)
+        {
+            Debug.Log("Falling");
+            body.AddForce((-body.transform.up) * fallSpeedAdjustor);
+        }
+
         //Making the body follow the head only on y axis
         lookRotation = headPosition.rotation.eulerAngles.y;
         var newRot = new Vector3(body.rotation.eulerAngles.x, lookRotation, body.rotation.eulerAngles.z);
