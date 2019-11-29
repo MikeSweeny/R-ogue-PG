@@ -9,14 +9,16 @@ public class PlayerController : MonoBehaviour
     float lookRotation;
     Rigidbody body;
 
-    float jumpPower = 500;
-    float moveSpeed = 15f;
+    float jumpPower = 35000;
+    float moveSpeed = 30f;
 
+    private PlayerManager playerManager;
 
     private void Start()
     {
         body = GetComponent<Rigidbody>();
         headPosition = transform.GetChild(0).transform;
+        playerManager = gameObject.GetComponent<PlayerManager>();
     }
 
     private void Update()
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            playerManager.projectilePool.FetchObjectFromPool();
+
             Debug.Log("PEW");
         }
         if (Input.GetButtonDown("Jump"))

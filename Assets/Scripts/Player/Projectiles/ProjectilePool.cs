@@ -8,6 +8,7 @@ public class ProjectilePool : MonoBehaviour
 
     public GameObject prefab_Projectile;
     int poolStartSize = 20;
+    Vector3 poolStartLoc = new Vector3(0, -100, 0);
 
 
     public static ProjectilePool Instance { get; private set; }
@@ -26,13 +27,13 @@ public class ProjectilePool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void PopulatePool()
@@ -42,6 +43,7 @@ public class ProjectilePool : MonoBehaviour
             GameObject obj;
             obj = Instantiate(prefab_Projectile);
             obj.SetActive(false);
+            obj.transform.position = poolStartLoc;
             projectiles.Add(obj);
         }
     }

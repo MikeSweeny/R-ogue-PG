@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour
     int projMod_SpreadCount;
     float attackCD;
     float defense;
-    float projMod_Speed;
+    float projMod_Speed = 50f;
     float projMod_Damage;
     float projMod_Spread = 5f;
 
@@ -36,14 +36,13 @@ public class PlayerManager : MonoBehaviour
     PlayerController controller;
 
     // Misc player variables
-    ProjectilePool projectilePool;
-
+    public ProjectilePool projectilePool;
+    SphereCollider newSphere;
     private void Start()
     {
         head = gameObject.transform.GetChild(0).gameObject;
         body = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
-        projectilePool = new ProjectilePool();
     }
 
     private void Update()
@@ -196,6 +195,27 @@ public class PlayerManager : MonoBehaviour
     public float GetProjSpread()
     {
         return projMod_Spread;
+    }
+
+    public bool GetActivePerks(string name)
+    {
+        switch (name)
+        {
+            case "seeking":
+                return seeking;
+            case "magnet":
+                return magnet;
+            case "lottery":
+                return lottery;
+            case "levitate":
+                return levitate;
+            case "explosive":
+                return explosive;
+            case "hover":
+                return hover;
+            default:
+                return false;
+        }
     }
 
     public void ActivatePerk(string name)
