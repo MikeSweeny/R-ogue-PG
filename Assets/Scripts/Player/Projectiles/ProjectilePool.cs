@@ -10,19 +10,9 @@ public class ProjectilePool : MonoBehaviour
     int poolStartSize = 20;
     Vector3 poolStartLoc = new Vector3(0, -100, 0);
 
-
-    public static ProjectilePool Instance { get; private set; }
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        PopulatePool();
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -36,7 +26,7 @@ public class ProjectilePool : MonoBehaviour
 
     }
 
-    void PopulatePool()
+    public void PopulatePool()
     {
         for (int i = 0; i < poolStartSize; i++)
         {

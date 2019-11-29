@@ -19,42 +19,63 @@ public class Projectile : MonoBehaviour
     bool explosive = false;
     bool hover = false;
 
+    // Bools to be replaced by state machine
+    public bool inAir;
+    public bool inPool;
+    public bool hit;
 
-    // Start is called before the first frame update
-    private void Awake()
-    {
-
-    }
-
-    void Start()
+    Projectile()
     {
         playerManager = SceneManager.Instance.GetPlayerManager();
     }
 
+    void Start()
+    {
+        
+    }
+
     private void OnEnable()
     {
-        if (playerManager)
-        {
-            transform.position = (playerManager.transform.forward * 3);
-            transform.LookAt(-(playerManager.transform.forward));
+        Vector3 spawnPos = playerManager.transform.position + (playerManager.transform.forward * 3);
+        transform.position = (spawnPos);
+        transform.LookAt(-playerManager.transform.forward);
 
-            attackCD = playerManager.GetAttackCD();
-            defense = playerManager.GetDefense();
-            projMod_Speed = playerManager.GetProjSpeed();
-            projMod_Damage = playerManager.GetProjDamage();
-            projMod_Spread = playerManager.GetProjSpread();
-            seeking = playerManager.GetActivePerks("seeking");
-            magnet = playerManager.GetActivePerks("magnet");
-            lottery = playerManager.GetActivePerks("lottery");
-            levitate = playerManager.GetActivePerks("levitate");
-            explosive = playerManager.GetActivePerks("explosive");
-            hover = playerManager.GetActivePerks("hover");
-        }
+        attackCD = playerManager.GetAttackCD();
+        defense = playerManager.GetDefense();
+        projMod_Speed = playerManager.GetProjSpeed();
+        projMod_Damage = playerManager.GetProjDamage();
+        projMod_Spread = playerManager.GetProjSpread();
+        seeking = playerManager.GetActivePerks("seeking");
+        magnet = playerManager.GetActivePerks("magnet");
+        lottery = playerManager.GetActivePerks("lottery");
+        levitate = playerManager.GetActivePerks("levitate");
+        explosive = playerManager.GetActivePerks("explosive");
+        hover = playerManager.GetActivePerks("hover");
+        inAir = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * projMod_Speed * Time.deltaTime;
+        if (inAir)
+        {
+            transform.position += transform.forward * projMod_Speed * Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            //ApplyDamage();
+            inAir = false;
+            ReturnToPool();
+        }
+    }
+
+    void ReturnToPool()
+    {
+        inPool = true;
+        gameObject.SetActive(false);
     }
 }

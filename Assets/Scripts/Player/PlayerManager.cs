@@ -43,6 +43,9 @@ public class PlayerManager : MonoBehaviour
         head = gameObject.transform.GetChild(0).gameObject;
         body = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
+
+        projectilePool = transform.GetChild(2).GetComponent<ProjectilePool>();
+        projectilePool.PopulatePool();
     }
 
     private void Update()

@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         // Making the body fall faster after jumping
         if (body.velocity.y <= 0.4)
         {
-            Debug.Log("Falling");
             body.AddForce((-body.transform.up) * fallSpeedAdjustor);
         }
 
@@ -53,14 +52,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            var tempProj = playerManager.projectilePool.FetchObjectFromPool();
-            tempProj.SetActive(true);
+            GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();
+            tempProj.gameObject.SetActive(true);
 
             Debug.Log("PEW");
         }
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("JAMP");
             body.AddForce(body.transform.up * jumpPower);
         }
         if (Input.GetButtonDown("Interact"))
