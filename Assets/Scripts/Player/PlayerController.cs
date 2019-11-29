@@ -9,18 +9,32 @@ public class PlayerController : MonoBehaviour
     float lookRotation;
     Rigidbody body;
 
-    float jumpPower = 500;
-    float moveSpeed = 15f;
+    float fallSpeedAdjustor = 2000;
+    float jumpPower = 50000;
+    float moveSpeed = 30f;
 
+    PlayerManager playerManager;
 
     private void Start()
     {
+        playerManager = SceneManager.Instance.GetPlayerManager();
         body = GetComponent<Rigidbody>();
         headPosition = transform.GetChild(0).transform;
     }
 
+    private void Awake()
+    {
+
+    }
+
     private void Update()
     {
+        // Making the body fall faster after jumping
+        if (body.velocity.y <= 0.4)
+        {
+            body.AddForce((-body.transform.up) * fallSpeedAdjustor);
+        }
+
         //Making the body follow the head only on y axis
         lookRotation = headPosition.rotation.eulerAngles.y;
         var newRot = new Vector3(body.rotation.eulerAngles.x, lookRotation, body.rotation.eulerAngles.z);
@@ -38,23 +52,32 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();
+            tempProj.gameObject.SetActive(true);
+
             Debug.Log("PEW");
         }
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("JAMP");
             body.AddForce(body.transform.up * jumpPower);
         }
         if (Input.GetButtonDown("Interact"))
         {
             if (interactObject)
             {
-                //interactObject.Act();
+                interactObject.Act();
+
+                Debug.Log("Successful Interaction with: " + interactObject);
             }
         }
         if (Input.GetButtonDown("Cancel"))
         {
             // Pause Menu?(probably not)  --  State Change?(probably)
         }
+    }
+
+    public void SetInteractObject(Interactable iObj)
+    {
+        interactObject = iObj;
     }
 }

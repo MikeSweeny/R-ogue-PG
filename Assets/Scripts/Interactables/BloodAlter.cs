@@ -10,39 +10,44 @@ public class BloodAlter : Interactable
     private int maxBlood = 100;
     private int minBlood = 0;
     private int currentBlood = 100;
+    private int timer = 0;
     public GameObject blood;
+    PlayerController pC;
+    PlayerManager pM;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        Act();
+        CountDown();
+        TimerReset();
+    }
+    public override void Act()
+    {
+        pC = SceneManager.Instance.GetPlayerController();
+        pM = SceneManager.Instance.GetPlayerManager();
+        if (pM.GetHealth() < pM.GetMaxHealth() && currentBlood > minBlood)
         {
-            PlayerInteract();
-        }
-       if(currentZ.transform.position.z < maxZ && currentZ.transform.position.z > minZ)
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                Vector3 temp = blood.transform.position;
-                temp.z += 1;
-                Vector3 newPosition = new Vector3(blood.transform.position.x, blood.transform.position.y, temp.z);
-            }
+            pM.SetBones(-1);
+            currentBlood = currentBlood - 1;
+            pM.SetHealth(+1);
+            Vector3 temp = blood.transform.position;
+            temp.z -= 1;
+            Vector3 newPosition = new Vector3(blood.transform.position.x, blood.transform.position.y, temp.z);
         }
     }
-
-    public void OnTriggerEnter(Collider other)
+    public void CountDown()
     {
-        setIsOn(true);
+        timer++;
+        if (timer == 300 && currentBlood >= minBlood && currentBlood < maxBlood)
+        {
+            Vector3 resetPosition = new Vector3(blood.transform.position.x, blood.transform.position.y, 3);
+        }
     }
-    public void PlayerInteract()
+    public void TimerReset()
     {
-        //if (isOn && currentHealth < maxHealth && currentBlood > minBlood && currentBlood <= maxBlood)
-        //{
-        //    bones = bones - 1;
-        //    currentBlood = currentBlood - 1;
-        //    currentHealth = currentHealth + 1;
-        //    Vector3 temp = blood.transform.position;
-        //    temp.z -= 1;
-        //    Vector3 newPosition = new Vector3(blood.transform.position.x, blood.transform.position.y, temp.z);
-        //}
+        if(timer == 300)
+        {
+            timer = 0;
+        }
     }
 }

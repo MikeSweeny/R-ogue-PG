@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     bool perkPoint = true;
+    float rayCastLength = 10;
+    RaycastHit forwardRaycastHit;
+    GameObject nearbyInteractable;
+    GameObject head;
 
     // Basic Stats
     int currentHealth;
@@ -15,7 +19,7 @@ public class PlayerManager : MonoBehaviour
     int projMod_SpreadCount;
     float attackCD;
     float defense;
-    float projMod_Speed;
+    float projMod_Speed = 50f;
     float projMod_Damage;
     float projMod_Spread = 5f;
 
@@ -31,18 +35,61 @@ public class PlayerManager : MonoBehaviour
     Rigidbody body;
     PlayerController controller;
 
+    // Misc player variables
+    public ProjectilePool projectilePool;
+    SphereCollider newSphere;
     private void Start()
     {
+        head = gameObject.transform.GetChild(0).gameObject;
         body = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
+
+        projectilePool = transform.GetChild(2).GetComponent<ProjectilePool>();
+        projectilePool.PopulatePool();
     }
 
     private void Update()
     {
-
+        SetRaycastHitTarget();
+        if (nearbyInteractable && GetRaycastHit())
+        {
+            if (forwardRaycastHit.transform.gameObject.CompareTag("Interactable"))
+            {
+                SceneManager.Instance.GetPlayerController().SetInteractObject(forwardRaycastHit.transform.gameObject.GetComponent<Interactable>());
+            }
+        }
+        else
+        {
+            SceneManager.Instance.GetPlayerController().SetInteractObject(null);
+        }
     }
 
+    private bool GetRaycastHit()
+    {
+        return Physics.Raycast(head.transform.position, head.transform.forward);
+    }
+    private void SetRaycastHitTarget()
+    {
+        Physics.Raycast(head.transform.position, head.transform.forward, out forwardRaycastHit);
+        Debug.DrawRay(head.transform.position, head.transform.forward.normalized * rayCastLength, new Color(1, 0, 0.25f, 1));
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("InteractableRange"))
+        {
+            Debug.Log("Near Interactable");
+            nearbyInteractable = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("InteractableRange"))
+        {
+            nearbyInteractable = null;
+        }
+    }
 
 
     //              GETTERS AND SETTERS             //
@@ -151,6 +198,27 @@ public class PlayerManager : MonoBehaviour
     public float GetProjSpread()
     {
         return projMod_Spread;
+    }
+
+    public bool GetActivePerks(string name)
+    {
+        switch (name)
+        {
+            case "seeking":
+                return seeking;
+            case "magnet":
+                return magnet;
+            case "lottery":
+                return lottery;
+            case "levitate":
+                return levitate;
+            case "explosive":
+                return explosive;
+            case "hover":
+                return hover;
+            default:
+                return false;
+        }
     }
 
     public void ActivatePerk(string name)

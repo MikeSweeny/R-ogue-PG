@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9233bc48571d84ebc7dc5ea24c665f, type: 3}
+  m_Script: {fileID: 11500000, guid: 141c9831c28d80a45b627c4c4fe45551, type: 3}
   m_Name: SpeedPerk1
   m_EditorClassIdentifier: 
-  ItemName: SpeedPerk
-  GemDisplay: {fileID: 3628696263511426080, guid: a4b3795275796b546b949ca3bc02d16d,
-    type: 3}
-  Icon: {fileID: 21300000, guid: b8783abf41273024bab7d4b67d854d6e, type: 3}
+  name: Faster Faster Faster
+  type: 1
+  pedGem: {fileID: 0}
+  displayIcon: {fileID: 0}
+  description: Faster Faster FasterFaster Faster FasterFaster Faster Faster
+  speedIncrease: 0

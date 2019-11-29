@@ -5,7 +5,7 @@ using UnityEngine;
 public class LookController : MonoBehaviour
 {
     // USED FOR MAKING THE PLAYER LOOK WITH MOUSE (ALSO RIGHT ANALOG ON CONTROLLER)
-    public float turnSensitivity = 150.0f;
+    public float turnSensitivity = 250.0f;
     public float clampAngle = 90.0f;
 
     private float rotY = 0.0f; // rotation around the up/y axis

@@ -4,22 +4,11 @@ using UnityEngine;
 
 public class DoorLever : Interactable
 {
-    public GameObject door;
+    public GameObject spawnDoor;
+    public GameObject ritualDoor;
+    public GameObject libraryDoor;
     public GameObject leverOn;
     public GameObject leverOff;
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            LeverOff();
-            door.SetActive(false);
-        }
-        else if (collision.gameObject.tag == "Player")
-        {
-            LeverOn();
-            door.SetActive(true);
-        }
-    }
     public void LeverOn()
     {
         leverOn.SetActive(true);
@@ -31,5 +20,32 @@ public class DoorLever : Interactable
         leverOn.SetActive(false);
         leverOff.SetActive(true);
         setIsOn(false);
+    }
+
+    public override void Act()
+    {
+        if(isOn)
+        {
+            LeverOff();
+            spawnDoor.SetActive(true);
+            ritualDoor.SetActive(true);
+            libraryDoor.SetActive(true);
+        }
+        else
+        {
+            LeverOn();
+            spawnDoor.SetActive(true);
+            ritualDoor.SetActive(false);
+            libraryDoor.SetActive(false);
+        }
+
+
+    }
+    public void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            Act();
+        }
     }
 }

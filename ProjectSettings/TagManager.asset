@@ -7,6 +7,11 @@ TagManager:
   - Door
   - Lever
   - BloodAlter
+  - RitualDoorLever
+  - LibraryDoorLever
+  - Interactable
+  - interactObject
+  - InteractableRange
   layers:
   - Default
   - TransparentFX

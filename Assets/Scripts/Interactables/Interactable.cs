@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
 {
     public bool isOn = false;
 
-    protected virtual void Act()
+    public virtual void Act()
     {
 
     }
