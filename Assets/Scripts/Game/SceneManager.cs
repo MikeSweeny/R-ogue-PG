@@ -5,8 +5,8 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     // Public references to anything in the scene
-    public PlayerController playerController;
-    public PlayerManager playerManager;
+    public static PlayerController playerController;
+    public static PlayerManager playerManager;
 
     public static SceneManager Instance { get; private set; } // static singleton
     void Awake()
@@ -20,8 +20,8 @@ public class SceneManager : MonoBehaviour
             Destroy(gameObject);
         }
         // Cache references to all desired variables
-        //playerController = FindObjectOfType<PlayerController>();
-        //playerManager = gameObject.transform.GetChild(0).GetComponent<PlayerManager>();
+        playerController = FindObjectOfType<PlayerController>();
+        playerManager = gameObject.transform.GetChild(0).GetComponent<PlayerManager>();
     }
 
     public PlayerManager GetPlayerManager()

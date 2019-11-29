@@ -41,11 +41,4 @@ public class DoorLever : Interactable
 
 
     }
-    public void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            Act();
-        }
-    }
 }
