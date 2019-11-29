@@ -1015,8 +1015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1190658a136c9c4ab012c552e57d586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1054503996}
-  playerManager: {fileID: 1054503995}
 --- !u!1 &598620726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,7 +1742,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1054503997}
-  - component: {fileID: 1054503996}
   - component: {fileID: 1054503999}
   - component: {fileID: 1054503998}
   - component: {fileID: 1054504000}
@@ -1768,19 +1765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75e50bd5686712419a4880262d14c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 284847937}
   projectilePool: {fileID: 605562306}
---- !u!114 &1054503996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054503994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 448e0d15df07b9447bb9cf8ce88f5b5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1054503997
 Transform:
   m_ObjectHideFlags: 0
@@ -2929,7 +2915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962666931}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0046358705, y: -0.5999999, z: -9.01}
+  m_LocalPosition: {x: -0.0046358705, y: 1.16, z: -9.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1980369687}

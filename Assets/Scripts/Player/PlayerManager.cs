@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     float rayCastLength = 10;
     RaycastHit forwardRaycastHit;
     GameObject nearbyInteractable;
-    GameObject head;
+    public GameObject head;
 
     // Basic Stats
     int currentHealth;
@@ -38,14 +38,19 @@ public class PlayerManager : MonoBehaviour
     // Misc player variables
     public ProjectilePool projectilePool;
     SphereCollider newSphere;
-    private void Start()
+
+    private void Awake()
     {
-        head = gameObject.transform.GetChild(0).gameObject;
-        body = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
 
         projectilePool = transform.GetChild(2).GetComponent<ProjectilePool>();
         projectilePool.PopulatePool();
+    }
+
+    private void Start()
+    {
+        head = gameObject.transform.GetChild(0).gameObject;
+        body = GetComponent<Rigidbody>();
     }
 
     private void Update()

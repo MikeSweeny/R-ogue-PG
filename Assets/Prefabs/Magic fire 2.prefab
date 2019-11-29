@@ -9518,6 +9518,7 @@ GameObject:
   - component: {fileID: 198154877614836784}
   - component: {fileID: 199735100987297476}
   - component: {fileID: 7404613838950719935}
+  - component: {fileID: 6243931750552209843}
   m_Layer: 0
   m_Name: Magic fire 2
   m_TagString: Untagged
@@ -14276,6 +14277,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565d08eef5ed0b84b9c7ec6a443c830d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inAir: 0
+  inPool: 0
+  hit: 0
+--- !u!135 &6243931750552209843
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900756431413560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.50000024
+  m_Center: {x: 0, y: -0.00000023841856, z: 9.473901e-15}
 --- !u!1 &1946108650276192
 GameObject:
   m_ObjectHideFlags: 0
@@ -19040,7 +19057,6 @@ GameObject:
   - component: {fileID: 941695978667499370}
   - component: {fileID: 1018687535159476417}
   - component: {fileID: 9205517186566719750}
-  - component: {fileID: 2446194864193435443}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -19108,16 +19124,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &2446194864193435443
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8711122332354927723}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.50000024
-  m_Center: {x: 0, y: -0.00000023841856, z: 9.473901e-15}

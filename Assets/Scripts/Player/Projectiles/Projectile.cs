@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
-        playerManager = SceneManager.Instance.GetPlayerManager();
+        playerManager = SceneManager.playerManager;
     }
 
     void Start()
@@ -36,9 +36,10 @@ public class Projectile : MonoBehaviour
 
     private void OnEnable()
     {
-        Vector3 spawnPos = playerManager.transform.position + (playerManager.transform.forward * 3);
+        Vector3 spawnPos = playerManager.transform.position + (playerManager.transform.forward) + (playerManager.transform.right);
         transform.position = (spawnPos);
-        transform.LookAt(-playerManager.transform.forward);
+        //transform.LookAt(-playerManager.head.transform.forward);
+        transform.forward = playerManager.head.transform.forward;
 
         attackCD = playerManager.GetAttackCD();
         defense = playerManager.GetDefense();
@@ -65,11 +66,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        inAir = false;
+        ReturnToPool();
         if (other.gameObject.CompareTag("Enemy"))
         {
             //ApplyDamage();
-            inAir = false;
-            ReturnToPool();
         }
     }
 
