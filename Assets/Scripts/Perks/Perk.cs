@@ -1,12 +1,24 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
-
-[CreateAssetMenu]
-public class Perk : ScriptableObject 
+public enum PerkType
 {
-    public string ItemName;
-    public GameObject GemDisplay;
-    public Sprite Icon;
-
+    Damage,
+    Speed,
+    Health,
+    Rare,
+    Misc
 }
 
+public class Perk : ScriptableObject
+{
+    public string name;
+    public PerkType type;
+    public GameObject pedGem;
+    public Sprite displayIcon;
+    [TextArea(15, 15)]
+    public string description;
+
+}

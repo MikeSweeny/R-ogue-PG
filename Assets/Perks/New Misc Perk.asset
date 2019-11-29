@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 141c9831c28d80a45b627c4c4fe45551, type: 3}
-  m_Name: SpeedPerk1
+  m_Script: {fileID: 11500000, guid: b7196567db5525842af93e0eb06f4e42, type: 3}
+  m_Name: New Misc Perk
   m_EditorClassIdentifier: 
-  name: Faster Faster Faster
-  type: 1
+  name: 
+  type: 4
   pedGem: {fileID: 0}
   displayIcon: {fileID: 0}
-  description: Faster Faster FasterFaster Faster FasterFaster Faster Faster
-  speedIncrease: 0
+  description: 
