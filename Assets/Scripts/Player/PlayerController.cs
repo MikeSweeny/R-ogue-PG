@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             if (interactObject)
             {
-                //interactObject.Act();
+                interactObject.Act();
             }
         }
         if (Input.GetButtonDown("Cancel"))

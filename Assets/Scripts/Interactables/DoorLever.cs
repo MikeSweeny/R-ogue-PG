@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DoorLever : Interactable
 {
-    public GameObject door;
+    public GameObject spawnDoor;
+    public GameObject ritualDoor;
+    public GameObject libraryDoor;
     public GameObject leverOn;
     public GameObject leverOff;
     public void LeverOn()
@@ -20,31 +22,30 @@ public class DoorLever : Interactable
         setIsOn(false);
     }
 
-    protected override void Act()
+    public override void Act()
     {
-        if(isOn && gameObject.tag == "RitualRoomLever")
+        if(isOn)
         {
-            Vector3 newPosition = new Vector3(door.transform.position.x, door.transform.position.y, 20);
-            door.transform.position = newPosition;
             LeverOff();
+            spawnDoor.SetActive(true);
+            ritualDoor.SetActive(true);
+            libraryDoor.SetActive(true);
         }
         else
         {
-            Vector3 newPosition = new Vector3(door.transform.position.x, door.transform.position.y, 0);
-            door.transform.position = newPosition;
             LeverOn();
+            spawnDoor.SetActive(true);
+            ritualDoor.SetActive(false);
+            libraryDoor.SetActive(false);
         }
-        if (isOn && gameObject.tag == "LibraryRoomLever")
+
+
+    }
+    public void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
         {
-            Vector3 newPosition = new Vector3(20, door.transform.position.y, door.transform.position.z);
-            door.transform.position = newPosition;
-            LeverOff();
-        }
-        else
-        {
-            Vector3 newPosition = new Vector3(0, door.transform.position.y, door.transform.position.z);
-            door.transform.position = newPosition;
-            LeverOn();
+            Act();
         }
     }
 }

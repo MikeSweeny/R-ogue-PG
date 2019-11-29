@@ -12,7 +12,8 @@ public class BloodAlter : Interactable
     private int currentBlood = 100;
     private int timer = 0;
     public GameObject blood;
-    PlayerManager player;
+    PlayerController pC;
+    PlayerManager pM;
     // Update is called once per frame
     void Update()
     {
@@ -20,13 +21,15 @@ public class BloodAlter : Interactable
         CountDown();
         TimerReset();
     }
-    protected override void Act()
+    public override void Act()
     {
-        if (player.GetHealth() < player.GetMaxHealth() && currentBlood > minBlood)
+        pC = SceneManager.Instance.GetPlayerController();
+        pM = SceneManager.Instance.GetPlayerManager();
+        if (pM.GetHealth() < pM.GetMaxHealth() && currentBlood > minBlood)
         {
-            player.SetBones(-1);
+            pM.SetBones(-1);
             currentBlood = currentBlood - 1;
-            player.SetHealth(+1);
+            pM.SetHealth(+1);
             Vector3 temp = blood.transform.position;
             temp.z -= 1;
             Vector3 newPosition = new Vector3(blood.transform.position.x, blood.transform.position.y, temp.z);
