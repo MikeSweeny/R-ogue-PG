@@ -20,8 +20,8 @@ public class SceneManager : MonoBehaviour
             Destroy(gameObject);
         }
         // Cache references to all desired variables
-        ///playerController = FindObjectOfType<PlayerController>();
-        ///playerManager = FindObjectOfType<PlayerManager>();
+        //playerController = FindObjectOfType<PlayerController>();
+        //playerManager = gameObject.transform.GetChild(0).GetComponent<PlayerManager>();
     }
 
     public PlayerManager GetPlayerManager()

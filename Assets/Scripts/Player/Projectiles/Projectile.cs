@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
     public bool inPool;
     public bool hit;
 
-    Projectile()
+    private void Awake()
     {
         playerManager = SceneManager.Instance.GetPlayerManager();
     }
