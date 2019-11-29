@@ -31,36 +31,36 @@ public class AiController : MonoBehaviour
         //x = myVelocity.x;
         //y = myVelocity.y;
       
-        if (myVelocity.x > 0)
+        if (myVelocity.z > 0)
         {
             x = x + 0.1f;
-            if (myVelocity.x >= 1)
+            if (myVelocity.z >= 1)
             {
                 x = 1;
             }
 
         }
-        else if (myVelocity.x < 0)
+        else if (myVelocity.z < 0)
         {
             x = x - 0.1f;
-            if (myVelocity.x <= -1)
+            if (myVelocity.z <= -1)
             {
                 x = -1;
             }
         }
 
-        if (myVelocity.y > 0)
+        if (myVelocity.x > 0)
         {
             y = y + 0.1f;
-            if (myVelocity.y >= 1)
+            if (myVelocity.x >= 1)
             {
                 y = 1;
             }
         }
-        else if (myVelocity.y < 0)
+        else if (myVelocity.x < 0)
         {
             y = y - 0.1f;
-            if (myVelocity.y <= -1)
+            if (myVelocity.x <= -1)
             {
                 y = -1;
             }
