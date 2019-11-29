@@ -12,13 +12,18 @@ public class PlayerController : MonoBehaviour
     float jumpPower = 35000;
     float moveSpeed = 30f;
 
-    private PlayerManager playerManager;
+    PlayerManager playerManager;
 
     private void Start()
     {
+        playerManager = SceneManager.Instance.GetPlayerManager();
         body = GetComponent<Rigidbody>();
         headPosition = transform.GetChild(0).transform;
-        playerManager = gameObject.GetComponent<PlayerManager>();
+    }
+
+    private void Awake()
+    {
+
     }
 
     private void Update()
@@ -40,7 +45,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            playerManager.projectilePool.FetchObjectFromPool();
+            var tempProj = playerManager.projectilePool.FetchObjectFromPool();
+            tempProj.SetActive(true);
 
             Debug.Log("PEW");
         }

@@ -23,35 +23,38 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        playerManager = SceneManager.Instance.GetPlayerManager();
+
     }
 
     void Start()
     {
-        
+        playerManager = SceneManager.Instance.GetPlayerManager();
     }
 
     private void OnEnable()
     {
-        transform.position = (playerManager.transform.forward * 3);
-        transform.LookAt(-(playerManager.transform.forward));
+        if (playerManager)
+        {
+            transform.position = (playerManager.transform.forward * 3);
+            transform.LookAt(-(playerManager.transform.forward));
 
-        attackCD = playerManager.GetAttackCD();
-        defense = playerManager.GetDefense();
-        projMod_Speed = playerManager.GetProjSpeed();
-        projMod_Damage = playerManager.GetProjDamage();
-        projMod_Spread = playerManager.GetProjSpread();
-        seeking = playerManager.GetActivePerks("seeking");
-        magnet = playerManager.GetActivePerks("magnet");
-        lottery = playerManager.GetActivePerks("lottery");
-        levitate = playerManager.GetActivePerks("levitate");
-        explosive = playerManager.GetActivePerks("explosive");
-        hover = playerManager.GetActivePerks("hover");
+            attackCD = playerManager.GetAttackCD();
+            defense = playerManager.GetDefense();
+            projMod_Speed = playerManager.GetProjSpeed();
+            projMod_Damage = playerManager.GetProjDamage();
+            projMod_Spread = playerManager.GetProjSpread();
+            seeking = playerManager.GetActivePerks("seeking");
+            magnet = playerManager.GetActivePerks("magnet");
+            lottery = playerManager.GetActivePerks("lottery");
+            levitate = playerManager.GetActivePerks("levitate");
+            explosive = playerManager.GetActivePerks("explosive");
+            hover = playerManager.GetActivePerks("hover");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += transform.forward * projMod_Speed * Time.deltaTime;
     }
 }
