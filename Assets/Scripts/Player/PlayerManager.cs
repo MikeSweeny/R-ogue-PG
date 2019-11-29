@@ -35,11 +35,15 @@ public class PlayerManager : MonoBehaviour
     Rigidbody body;
     PlayerController controller;
 
+    // Misc player variables
+    ProjectilePool projectilePool;
+
     private void Start()
     {
         head = gameObject.transform.GetChild(0).gameObject;
         body = GetComponent<Rigidbody>();
         controller = GetComponent<PlayerController>();
+        projectilePool = new ProjectilePool();
     }
 
     private void Update()
