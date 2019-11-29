@@ -49,7 +49,9 @@ public class PlayerController : MonoBehaviour
         {
             if (interactObject)
             {
+                interactObject.Act();
 
+                Debug.Log("Successful Interaction with: " + interactObject);
             }
         }
         if (Input.GetButtonDown("Cancel"))
