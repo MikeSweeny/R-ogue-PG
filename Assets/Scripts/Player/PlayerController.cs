@@ -49,12 +49,17 @@ public class PlayerController : MonoBehaviour
         {
             if (interactObject)
             {
-                interactObject.Act();
+
             }
         }
         if (Input.GetButtonDown("Cancel"))
         {
             // Pause Menu?(probably not)  --  State Change?(probably)
         }
+    }
+
+    public void SetInteractObject(Interactable iObj)
+    {
+        interactObject = iObj;
     }
 }
