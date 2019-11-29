@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AiController : MonoBehaviour
 {
@@ -9,17 +10,28 @@ public class AiController : MonoBehaviour
     private float x = 0;
     private float y = 0;
 
+    public Transform target;
+
+    private Collider attackRange;
+    private NavMeshAgent agent;
+
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
 
+        attackRange = GetComponentInChildren<SphereCollider>();
+
+        //PlayerCollider = SceneManager.Instance.GetPlayerController();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        agent.SetDestination(target.position);
+
         /*if (_animator = null)
         {
             return;
@@ -72,10 +84,13 @@ public class AiController : MonoBehaviour
     {
         _animator.SetFloat("VelX", x);
         _animator.SetFloat("VelY", y);
-
-        Debug.Log(x);
-
     }
 
-    
+    void OnCollisionEnter(Collision other)
+    {
+       
+    }
+
+
+
 }
