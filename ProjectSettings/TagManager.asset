@@ -12,6 +12,7 @@ TagManager:
   - Interactable
   - interactObject
   - InteractableRange
+  - Enemy
   layers:
   - Default
   - TransparentFX
