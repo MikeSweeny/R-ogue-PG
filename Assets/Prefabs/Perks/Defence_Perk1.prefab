@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3628696263510267936}
   - component: {fileID: 3628696263509170912}
   - component: {fileID: 3628696263950960103}
+  - component: {fileID: -6852135966070561008}
   m_Layer: 0
   m_Name: Defence_Perk1
-  m_TagString: Untagged
+  m_TagString: PerkTest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3628696263511426080}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -1.6346, y: 1.3711, z: 0.3057}
   m_LocalScale: {x: 0.36729, y: 0.36729, z: 0.36729}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &3628696263510267936
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -103,3 +104,16 @@ MonoBehaviour:
   endScale: {x: 0, y: 0, z: 0}
   scaleSpeed: 0
   scaleRate: 0
+--- !u!114 &-6852135966070561008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628696263511426080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa949365874a52d4bba2aa15300616aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perk: {fileID: 11400000, guid: 44a1998ba402b5d4a9935c37f2810901, type: 2}

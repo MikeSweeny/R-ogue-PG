@@ -37,6 +37,8 @@ public class PlayerManager : MonoBehaviour
 
     // Misc player variables
     public ProjectilePool projectilePool;
+    public GameObject pauseMenu;
+    public PerkSystem perkUI;
     SphereCollider newSphere;
 
     private void Awake()
@@ -86,6 +88,12 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log("Near Interactable");
             nearbyInteractable = other.gameObject;
+        }
+        var perk = other.GetComponent<PerkObject>();
+        if (other.gameObject.CompareTag("PerkTest"))
+        {
+            perkUI.AddPerk(perk.perk, 1);
+            Destroy(other.gameObject);
         }
     }
 
@@ -252,5 +260,10 @@ public class PlayerManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        perkUI.Container.Clear();
     }
 }

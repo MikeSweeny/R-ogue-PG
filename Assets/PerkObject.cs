@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisplayPerks : MonoBehaviour
+public class PerkObject : MonoBehaviour
 {
-
+    public Perk perk;
 }

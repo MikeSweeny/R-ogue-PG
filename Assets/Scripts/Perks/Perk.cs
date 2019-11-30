@@ -12,7 +12,7 @@ public enum PerkType
     Misc
 }
 
-public class Perk : ScriptableObject
+public abstract class Perk : ScriptableObject
 {
     public string name;
     public PerkType type;

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Faster Faster Faster
   type: 1
-  pedGem: {fileID: 0}
-  displayIcon: {fileID: 0}
+  pedGem: {fileID: 3628696263511426080, guid: a4b3795275796b546b949ca3bc02d16d, type: 3}
+  displayIcon: {fileID: 21300000, guid: 460e7d249cb228a43846bb3a7565966e, type: 3}
   description: Faster Faster FasterFaster Faster FasterFaster Faster Faster
   speedIncrease: 0

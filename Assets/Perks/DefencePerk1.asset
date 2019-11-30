@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c93d4c8cfda44a8ebac422c34ab2c, type: 3}
   m_Name: DefencePerk1
   m_EditorClassIdentifier: 
-  name: 
+  name: DefencePerk
   type: 2
   pedGem: {fileID: 3628696263511426080, guid: 5c5c224b5970f2a43a8ccce39bf79d33, type: 3}
   displayIcon: {fileID: 21300000, guid: b28269a2c4f00c74b94c3dfc92174d9c, type: 3}
