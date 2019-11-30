@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject head;
 
     // Basic Stats
-    int currentHealth;
+    int currentHealth = 100;
     int maxHealth;
     int bones;
     int jumpCount = 1;

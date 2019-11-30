@@ -13,6 +13,7 @@ TagManager:
   - interactObject
   - InteractableRange
   - Enemy
+  - DamageCube
   layers:
   - Default
   - TransparentFX
