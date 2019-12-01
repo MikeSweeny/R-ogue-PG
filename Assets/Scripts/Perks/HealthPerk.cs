@@ -12,5 +12,6 @@ public class HealthPerk : PerkObject
         // This is so we dont have to set the type everytime we make one
 
         type = PerkType.Health;
+        
     }
 }

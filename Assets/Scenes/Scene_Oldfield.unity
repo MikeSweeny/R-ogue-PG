@@ -2831,6 +2831,7 @@ GameObject:
   - component: {fileID: 1135842163}
   - component: {fileID: 1135842162}
   - component: {fileID: 1135842161}
+  - component: {fileID: 1135842165}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2868,6 +2869,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 1088510380}
+  currentHealth: 100
+  maxHealth: 100
+  bones: 0
+  jumpCount: 0
+  lifesteal: 0
+  projMod_SpreadCount: 0
+  attackCD: 0
+  defense: 0
+  projMod_Speed: 50
+  projMod_Damage: 0
+  projMod_Spread: 5
   projectilePool: {fileID: 1739943267}
   pauseMenu: {fileID: 899016770}
   perkSystem: {fileID: 11400000, guid: 1b07a7abd62e6f740bb80484c408189b, type: 2}
@@ -2913,6 +2925,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1135842165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135842159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7cd133ba7acf94ba4a055101a237c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 0
+  currentHealth: 0
+  player: {fileID: 1135842161}
 --- !u!1 &1217371563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4484,12 +4511,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7349437468944387891, guid: 2c6c5d953c3921542972b56e8728baba,
-        type: 3}
-      propertyPath: perk
-      value: 
-      objectReference: {fileID: 11400000, guid: 73cddc7ad7b23d944bd3b08a8c15d11a,
-        type: 2}
     - target: {fileID: 3628696263511426080, guid: 2c6c5d953c3921542972b56e8728baba,
         type: 3}
       propertyPath: m_Name
@@ -4550,6 +4571,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7349437468944387891, guid: 2c6c5d953c3921542972b56e8728baba,
+        type: 3}
+      propertyPath: perk
+      value: 
+      objectReference: {fileID: 11400000, guid: 73cddc7ad7b23d944bd3b08a8c15d11a,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6c5d953c3921542972b56e8728baba, type: 3}
 --- !u!1 &1739943265
