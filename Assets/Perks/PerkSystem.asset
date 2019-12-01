@@ -10,6 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78914a83dce3da2419fd19f4a0f524fa, type: 3}
-  m_Name: Perks
+  m_Name: PerkSystem
   m_EditorClassIdentifier: 
-  Container: []
+  container:
+    perk: []
+  database: {fileID: 11400000, guid: 15ccf1c8dac244449894671cab037189, type: 2}

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "New Rare Perk", menuName = "Perks/Rare")]
-public class RarePerk : Perk
+public class RarePerk : PerkObject
 {
     public bool seeking;
     public bool magnet;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "New Health Perk", menuName = "Perks/Health")]
-public class HealthPerk : Perk
+public class HealthPerk : PerkObject
 {
     public int healthIncrease;
     public int defenceIncrease;

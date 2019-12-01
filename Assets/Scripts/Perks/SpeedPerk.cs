@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "New Speed Perk", menuName = "Perks/Speed")]
-public class SpeedPerk : Perk
+public class SpeedPerk : PerkObject
 {
     public int speedIncrease;
     public void Awake()

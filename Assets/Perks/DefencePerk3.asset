@@ -9,11 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7196567db5525842af93e0eb06f4e42, type: 3}
-  m_Name: New Misc Perk
+  m_Script: {fileID: 11500000, guid: c62c93d4c8cfda44a8ebac422c34ab2c, type: 3}
+  m_Name: DefencePerk3
   m_EditorClassIdentifier: 
-  name: 
-  type: 4
-  pedGem: {fileID: 0}
+  ID: 5
+  name: Defence Up Plus Ultra
+  type: 2
+  pedGem: {fileID: 3628696263511426080, guid: 91516bc88a22a01498708117fb434184, type: 3}
+  IsStackable: 1
   displayIcon: {fileID: 0}
   description: 
+  healthIncrease: 3
+  defenceIncrease: 0

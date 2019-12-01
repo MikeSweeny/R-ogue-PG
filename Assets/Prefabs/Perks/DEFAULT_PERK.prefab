@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3628696263510267936}
   - component: {fileID: 3628696263509170912}
   - component: {fileID: 3628696263950960103}
+  - component: {fileID: -5040330841539244594}
   m_Layer: 0
   m_Name: DEFAULT_PERK
-  m_TagString: Untagged
+  m_TagString: PerkTest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,3 +104,17 @@ MonoBehaviour:
   endScale: {x: 0, y: 0, z: 0}
   scaleSpeed: 0
   scaleRate: 0
+--- !u!64 &-5040330841539244594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628696263511426080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 6579b708f10e00c448d8ddbc06ba95fe, type: 3}

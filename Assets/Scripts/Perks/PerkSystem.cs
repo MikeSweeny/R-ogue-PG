@@ -2,36 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PerkSystem", menuName = "PerkSystem/PerkSystem")]
+[CreateAssetMenu(fileName = "PerkSystem", menuName = "PerkSystem/PerkSystem/System")]
 
 public class PerkSystem : ScriptableObject
-// Upon picking up a perk, the Display for the Perks will need to update, changing the default sprite (White box) to the sprite the Perk picked up uses
-// if theres alreay a perk, it needs to stack
 {
-    public List<PerkSlot> Container = new List<PerkSlot>();
-    public void AddPerk(Perk _perk, int _amount)
+    public PerkHolder container;
+    public PerkDataBase database;
+    public void AddPerk(PerkObject _perk, int _amount)
     {
-        bool hasPerk = false;
-        for (int i = 0; i < Container.Count; i++)
+        if (_perk.IsStackable == false)
         {
-            
-            if(Container[i].perk == _perk)
-            {
-                Container[i].AddAmount(_amount);
-                hasPerk = true;
-                break;
-            }
-
+            container.perk.Add(new PerkSlot(_perk.ID, _perk, _amount));
+            return;
         }
+        for (int i = 0; i < container.perk.Count; i++)
+        {
+            if (container.perk[i].perk.ID == _perk.ID)
+            {
+                container.perk[i].AddAmount(_amount);
+                return;
+            }
+        }
+        container.perk.Add(new PerkSlot(_perk.ID, _perk, _amount));
+
     }
 }
 [System.Serializable]
+public class PerkHolder
+{
+    public List<PerkSlot> perk = new List<PerkSlot>();
+
+}
+
+[System.Serializable]
 public class PerkSlot
 {
-    public Perk perk;
+    public int ID;
+    public PerkObject perk;
     public int amount;
-    public PerkSlot(Perk _perk, int _amount)
+    public PerkSlot(int _id, PerkObject _perk, int _amount)
     {
+        ID = _id;
         perk = _perk;
         amount = _amount;
 

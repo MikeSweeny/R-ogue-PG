@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3628696263509170912}
   - component: {fileID: 3628696263950960103}
   - component: {fileID: -6852135966070561008}
+  - component: {fileID: 5675667568310609734}
   m_Layer: 0
   m_Name: Defence_Perk1
   m_TagString: PerkTest
@@ -117,3 +118,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perk: {fileID: 11400000, guid: 44a1998ba402b5d4a9935c37f2810901, type: 2}
+--- !u!64 &5675667568310609734
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628696263511426080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 911b2aca4190de843ba6fc029bf3734d, type: 3}

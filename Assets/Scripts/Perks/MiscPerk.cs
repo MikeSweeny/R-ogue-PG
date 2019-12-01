@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "New Misc Perk", menuName = "Perks/Misc")]
-public class MiscPerk : Perk
+public class MiscPerk : PerkObject
 {
     public void Awake()
     {

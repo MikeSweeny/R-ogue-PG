@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Damage Perk", menuName = "Perks/Attack")]
-public class AttackPerk : Perk
+public class AttackPerk : PerkObject
 {
     public int DamageIncrease;
     public void Awake()
