@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     RaycastHit forwardRaycastHit;
     GameObject nearbyInteractable;
     public GameObject head;
+    
 
     // Basic Stats
     [SerializeField]
@@ -19,7 +20,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     int bones;
     [SerializeField]
-    int jumpCount = 1;
+    int jumpCount;
+    [SerializeField]
+    int numTimesJumped;
     [SerializeField]
     int lifesteal;
     [SerializeField]
@@ -35,6 +38,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     float projMod_Spread;
     [SerializeField]
+    bool isGrounded;
 
     // Toggleable Perks
     bool seeking = false;   /// Call by these names in strings
@@ -60,29 +64,29 @@ public class PlayerManager : MonoBehaviour
 
         projectilePool = transform.GetChild(2).GetComponent<ProjectilePool>();
         projectilePool.PopulatePool();
-        // ****************** HERE IS THE BASE STATS ****************** //
-        SetBaseStats();
     }
 
-    private void SetBaseStats()
-    {
-        int maxHealth = 1000;
-        int currentHealth = maxHealth;
-        int bones = 0;
-        int jumpCount = 1;
-        int lifesteal = 0;
-        int projMod_SpreadCount = 1;
-        float attackCD = 1.5f;
-        float defense = 10f;
-        float projMod_Speed = 50f;
-        float projMod_Damage = 5f;
-        float projMod_Spread = 5f;
-    }
 
     private void Start()
     {
         head = gameObject.transform.GetChild(0).gameObject;
         body = GetComponent<Rigidbody>();
+        // ****************** HERE IS THE BASE STATS ****************** //
+        SetBaseStats();
+    }
+    private void SetBaseStats()
+    {
+        maxHealth = 1000;
+        currentHealth = maxHealth;
+        bones = 0;
+        jumpCount = 1;
+        lifesteal = 0;
+        projMod_SpreadCount = 1;
+        attackCD = 1.5f;
+        defense = 10f;
+        projMod_Speed = 50f;
+        projMod_Damage = 5f;
+        projMod_Spread = 5f;
     }
 
     private void Update()

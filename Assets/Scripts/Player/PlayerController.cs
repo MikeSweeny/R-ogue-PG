@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump"))
         {
+            playerManager.IncrementJumpCount();
             body.AddForce(body.transform.up * jumpPower);
         }
         if (Input.GetButtonDown("Interact"))
