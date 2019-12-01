@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Audio;
 
-public class AudioManagerSFX : MonoBehaviour
+public class AudioManagerSFX : MasterAudioManager
 {    
     //Current SFX Playing
     private AudioSource currentSFX;

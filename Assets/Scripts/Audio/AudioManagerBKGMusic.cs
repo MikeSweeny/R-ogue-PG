@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManagerBKGMusic : MonoBehaviour
+public class AudioManagerBKGMusic : MasterAudioManager
 {
     //Current Song Playing
     private AudioSource currentSong;
