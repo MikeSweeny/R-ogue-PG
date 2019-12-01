@@ -14,6 +14,10 @@ public class BloodAlter : Interactable
     public GameObject blood;
     PlayerManager pM;
     // Update is called once per frame
+    public void Start()
+    {
+        pM = SceneManager.Instance.GetPlayerManager();
+    }
     void Update()
     {
         Act();
@@ -22,7 +26,6 @@ public class BloodAlter : Interactable
     }
     public override void Act()
     {
-        pM = SceneManager.Instance.GetPlayerManager();
         if (pM.GetHealth() < pM.GetMaxHealth() && currentBlood > minBlood)
         {
             pM.SetBones(-1);
