@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Making the body fall faster after jumping
         if (body.velocity.y <= 0.4)
@@ -49,7 +49,10 @@ public class PlayerController : MonoBehaviour
         newPos = newPos.normalized * moveSpeed * Time.deltaTime;
         newPos = transform.worldToLocalMatrix.inverse * newPos;
         body.MovePosition(transform.position + newPos);
+    }
 
+    private void Update()
+    {
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();

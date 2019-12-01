@@ -6,18 +6,13 @@ public class Projectile : MonoBehaviour
 {
     PlayerManager playerManager;
 
-    float attackCD;
-    float defense;
     float projMod_Speed;
     float projMod_Damage;
     float projMod_Spread;
 
     bool seeking = false;
     bool magnet = false;
-    bool lottery = false;
-    bool levitate = false;
     bool explosive = false;
-    bool hover = false;
 
     // Bools to be replaced by state machine
     public bool inAir;
@@ -41,17 +36,12 @@ public class Projectile : MonoBehaviour
         //transform.LookAt(-playerManager.head.transform.forward);
         transform.forward = playerManager.head.transform.forward;
 
-        attackCD = playerManager.GetAttackCD();
-        defense = playerManager.GetDefense();
         projMod_Speed = playerManager.GetProjSpeed();
         projMod_Damage = playerManager.GetProjDamage();
         projMod_Spread = playerManager.GetProjSpread();
         seeking = playerManager.GetActivePerks("seeking");
         magnet = playerManager.GetActivePerks("magnet");
-        lottery = playerManager.GetActivePerks("lottery");
-        levitate = playerManager.GetActivePerks("levitate");
         explosive = playerManager.GetActivePerks("explosive");
-        hover = playerManager.GetActivePerks("hover");
         inAir = true;
     }
 
