@@ -5,8 +5,8 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     // Public references to anything in the scene
-    public static PlayerController playerController;
-    public static PlayerManager playerManager;
+    public PlayerController playerController;
+    public PlayerManager playerManager;
 
     public static SceneManager Instance { get; private set; } // static singleton
     void Awake()

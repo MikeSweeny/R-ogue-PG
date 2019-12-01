@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -511,7 +511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSensitivity: 100
-  clampAngle: 80
+  clampAngleUp: 90
+  clampAngleDown: -90
 --- !u!1 &375812165
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +619,7 @@ GameObject:
   - component: {fileID: 431819967}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1021,6 +1022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1190658a136c9c4ab012c552e57d586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1054504000}
+  playerManager: {fileID: 1054503995}
 --- !u!65 &540483590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1328,7 +1331,7 @@ GameObject:
   - component: {fileID: 667531351}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1636,7 +1639,7 @@ GameObject:
   - component: {fileID: 1008957958}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1853,7 +1856,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 284847937}
+  currentHealth: 0
+  maxHealth: 0
+  bones: 0
+  jumpCount: 0
+  numTimesJumped: 0
+  lifesteal: 0
+  projMod_SpreadCount: 0
+  attackCD: 0
+  defense: 0
+  projMod_Speed: 0
+  projMod_Damage: 0
+  projMod_Spread: 0
+  isGrounded: 0
   projectilePool: {fileID: 605562306}
+  pauseMenu: {fileID: 0}
+  perkSystem: {fileID: 0}
 --- !u!4 &1054503997
 Transform:
   m_ObjectHideFlags: 0
@@ -1879,7 +1897,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054503994}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 3.15
@@ -3241,7 +3259,7 @@ GameObject:
   - component: {fileID: 2023464354}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

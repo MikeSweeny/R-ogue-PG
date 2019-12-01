@@ -10,7 +10,6 @@ public class PlayerManager : MonoBehaviour
     RaycastHit forwardRaycastHit;
     GameObject nearbyInteractable;
     public GameObject head;
-    
 
     // Basic Stats
     [SerializeField]
@@ -38,7 +37,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     float projMod_Spread;
     [SerializeField]
-    bool isGrounded;
+    bool isGrounded = true;
 
     // Toggleable Perks
     bool seeking = false;   /// Call by these names in strings
@@ -88,6 +87,7 @@ public class PlayerManager : MonoBehaviour
         projMod_Damage = 5f;
         projMod_Spread = 5f;
     }
+        // ****************** HERE IS THE BASE STATS ****************** //
 
     private void Update()
     {
@@ -97,11 +97,11 @@ public class PlayerManager : MonoBehaviour
             if (forwardRaycastHit.transform.gameObject.CompareTag("Interactable"))
             {
                 Debug.Log("Looking at: " + forwardRaycastHit.transform.gameObject);
-                SceneManager.playerController.SetInteractObject(forwardRaycastHit.transform.parent.GetComponent<Interactable>());
+                SceneManager.Instance.GetPlayerController().SetInteractObject(forwardRaycastHit.transform.parent.GetComponent<Interactable>());
             }
             else
             {
-                SceneManager.playerController.SetInteractObject(null);
+                SceneManager.Instance.GetPlayerController().SetInteractObject(null);
             }
         }
     }
@@ -248,6 +248,33 @@ public class PlayerManager : MonoBehaviour
         return projMod_Spread;
     }
 
+    public bool GetIsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public void SetIsGrounded(bool isOnG)
+    {
+        if (isOnG)
+        {
+            isGrounded = true;
+            numTimesJumped = 0;
+        }
+        if (!isOnG)
+        {
+            isGrounded = false;
+        }
+    }
+    public void IncrementTimesJumped()
+    {
+        numTimesJumped++;
+    }
+
+    public int GetNumTimesJumped()
+    {
+        return numTimesJumped;
+    }
+
     public bool GetActivePerks(string name)
     {
         switch (name)
@@ -298,6 +325,6 @@ public class PlayerManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        perkSystem.container.perk.Clear();
+        //perkSystem.container.perk.Clear();
     }
 }

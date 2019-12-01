@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
-        playerManager = SceneManager.playerManager;
+        playerManager = SceneManager.Instance.GetPlayerManager();
     }
 
     void Start()
@@ -31,9 +31,10 @@ public class Projectile : MonoBehaviour
 
     private void OnEnable()
     {
+        // Making projectiles choose a random spot in a cone range from player.head.forward +/- projMod_Spread
+
         Vector3 spawnPos = playerManager.transform.position + (playerManager.transform.forward) + (playerManager.transform.right);
         transform.position = (spawnPos);
-        //transform.LookAt(-playerManager.head.transform.forward);
         transform.forward = playerManager.head.transform.forward;
 
         projMod_Speed = playerManager.GetProjSpeed();
