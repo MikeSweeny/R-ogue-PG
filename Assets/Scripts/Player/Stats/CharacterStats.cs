@@ -7,7 +7,7 @@ public class CharacterStats : MonoBehaviour
     public PlayerManager player;
     private void Start()
     {
-        player = SceneManager.playerManager;
+        player = SceneManager.Instance.GetPlayerManager();
         currentHealth = player.GetHealth();
         MaxHealth = player.GetMaxHealth();
     }
