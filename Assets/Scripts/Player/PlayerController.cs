@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
     float lookRotation;
     Rigidbody body;
 
-    float fallSpeedAdjustor = 2000;
+    float fallSpeedAdjustor = 1000;
     float jumpPower = 50000;
-    float moveSpeed = 30f;
+    float moveSpeed = 20f;
 
     PlayerManager playerManager;
 
@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
+    {
+
+    }
+
+    private void Update()
     {
         // Making the body fall faster after jumping
         if (body.velocity.y <= 0.4)
@@ -49,10 +54,6 @@ public class PlayerController : MonoBehaviour
         newPos = newPos.normalized * moveSpeed * Time.deltaTime;
         newPos = transform.worldToLocalMatrix.inverse * newPos;
         body.MovePosition(transform.position + newPos);
-    }
-
-    private void Update()
-    {
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();

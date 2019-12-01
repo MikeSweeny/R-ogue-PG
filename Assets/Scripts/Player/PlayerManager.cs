@@ -12,17 +12,29 @@ public class PlayerManager : MonoBehaviour
     public GameObject head;
 
     // Basic Stats
-    int currentHealth = 100;
+    [SerializeField]
+    int currentHealth;
+    [SerializeField]
     int maxHealth;
+    [SerializeField]
     int bones;
+    [SerializeField]
     int jumpCount = 1;
+    [SerializeField]
     int lifesteal;
+    [SerializeField]
     int projMod_SpreadCount;
+    [SerializeField]
     float attackCD;
+    [SerializeField]
     float defense;
-    float projMod_Speed = 50f;
+    [SerializeField]
+    float projMod_Speed;
+    [SerializeField]
     float projMod_Damage;
-    float projMod_Spread = 5f;
+    [SerializeField]
+    float projMod_Spread;
+    [SerializeField]
 
     // Toggleable Perks
     bool seeking = false;   /// Call by these names in strings
