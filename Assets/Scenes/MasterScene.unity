@@ -10760,7 +10760,7 @@ PrefabInstance:
     - target: {fileID: 1471507442560077860, guid: b03d9f0e2af7333469d6cd960b2472f9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8747951131855023100, guid: b03d9f0e2af7333469d6cd960b2472f9,
         type: 3}
@@ -11444,7 +11444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &959009761
 Transform:
   m_ObjectHideFlags: 0
@@ -11471,7 +11471,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -1602820712352009259, guid: da8cbdc8b8b6dbc4e868e5417ecfdac8,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: fb34e170a0f80f04cbafa3d2091f4ce5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
@@ -11655,6 +11655,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 1758261423}
   projectilePool: {fileID: 895104665}
+  pauseMenu: {fileID: 0}
+  perkSystem: {fileID: 0}
 --- !u!136 &1053124170
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22853,7 +22855,7 @@ PrefabInstance:
     - target: {fileID: 1471507442560077860, guid: b03d9f0e2af7333469d6cd960b2472f9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8747951131855023100, guid: b03d9f0e2af7333469d6cd960b2472f9,
         type: 3}
@@ -23880,6 +23882,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: InteractableRange
       objectReference: {fileID: 0}
+    - target: {fileID: 9195423792370286959, guid: c39a6416ba4511140b224fa0984d1125,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 4919885603023699340, guid: c39a6416ba4511140b224fa0984d1125,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23955,11 +23962,6 @@ PrefabInstance:
       propertyPath: blood
       value: 
       objectReference: {fileID: 87893773}
-    - target: {fileID: 9195423792370286959, guid: c39a6416ba4511140b224fa0984d1125,
-        type: 3}
-      propertyPath: m_TagString
-      value: Interactable
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c39a6416ba4511140b224fa0984d1125, type: 3}
 --- !u!4 &2120307623 stripped
@@ -41541,6 +41543,21 @@ PrefabInstance:
       propertyPath: ritualDoor
       value: 
       objectReference: {fileID: 488540862}
+    - target: {fileID: 7487167566975174024, guid: 50a8f3d3bf6aa7844850cda184f375e1,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 959009760}
+    - target: {fileID: 7487167566975174024, guid: 50a8f3d3bf6aa7844850cda184f375e1,
+        type: 3}
+      propertyPath: audioIdle
+      value: 
+      objectReference: {fileID: 2077925634}
+    - target: {fileID: 7487167566975174024, guid: 50a8f3d3bf6aa7844850cda184f375e1,
+        type: 3}
+      propertyPath: audioBattle
+      value: 
+      objectReference: {fileID: 959009762}
     - target: {fileID: 2181431601987889947, guid: 50a8f3d3bf6aa7844850cda184f375e1,
         type: 3}
       propertyPath: m_Radius

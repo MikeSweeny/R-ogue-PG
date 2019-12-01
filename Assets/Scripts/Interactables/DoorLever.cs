@@ -9,6 +9,8 @@ public class DoorLever : Interactable
     public GameObject libraryDoor;
     public GameObject leverOn;
     public GameObject leverOff;
+    public AudioSource audioIdle;
+    public AudioSource audioBattle;
     public void LeverOn()
     {
         leverOn.SetActive(true);
@@ -28,15 +30,19 @@ public class DoorLever : Interactable
         {
             LeverOff();
             spawnDoor.SetActive(true);
-            ritualDoor.SetActive(true);
-            libraryDoor.SetActive(true);
+            ritualDoor.SetActive(false);
+            libraryDoor.SetActive(false);
+            audioIdle.Play();
+            audioBattle.Stop();
         }
         else
         {
             LeverOn();
-            spawnDoor.SetActive(true);
-            ritualDoor.SetActive(false);
-            libraryDoor.SetActive(false);
+            spawnDoor.SetActive(false);
+            ritualDoor.SetActive(true);
+            libraryDoor.SetActive(true);
+            audioIdle.Stop();
+            audioBattle.Play();
         }
 
 
