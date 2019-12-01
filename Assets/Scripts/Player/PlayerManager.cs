@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     float projMod_Spread;
     [SerializeField]
-    bool isGrounded;
+    bool isGrounded = true;
 
     // Toggleable Perks
     bool seeking = false;   /// Call by these names in strings
@@ -246,6 +246,33 @@ public class PlayerManager : MonoBehaviour
     public float GetProjSpread()
     {
         return projMod_Spread;
+    }
+
+    public bool GetIsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public void SetIsGrounded(bool isOnG)
+    {
+        if (isOnG)
+        {
+            isGrounded = true;
+            numTimesJumped = 0;
+        }
+        if (!isOnG)
+        {
+            isGrounded = false;
+        }
+    }
+    public void IncrementTimesJumped()
+    {
+        numTimesJumped++;
+    }
+
+    public int GetNumTimesJumped()
+    {
+        return numTimesJumped;
     }
 
     public bool GetActivePerks(string name)

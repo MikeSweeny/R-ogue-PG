@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour
         newPos = newPos.normalized * moveSpeed * Time.deltaTime;
         newPos = transform.worldToLocalMatrix.inverse * newPos;
         body.MovePosition(transform.position + newPos);
+
+        // Other input controls
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();
@@ -63,8 +65,15 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump"))
         {
-            playerManager.IncrementJumpCount();
-            body.AddForce(body.transform.up * jumpPower);
+            if (playerManager.GetNumTimesJumped() >= playerManager.GetJumpCount())
+            {
+                return;
+            }
+            else
+            {
+                body.AddForce(body.transform.up * jumpPower);
+                playerManager.IncrementTimesJumped();
+            }
         }
         if (Input.GetButtonDown("Interact"))
         {
@@ -84,5 +93,21 @@ public class PlayerController : MonoBehaviour
     public void SetInteractObject(Interactable iObj)
     {
         interactObject = iObj;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            playerManager.SetIsGrounded(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            playerManager.SetIsGrounded(false);
+        }
     }
 }
