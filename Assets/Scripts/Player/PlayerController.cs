@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             //Animation anim = Animator.GetCurrentAnimatorClipInfo
-.
+
             _animator.StopPlayback();
             _animator.SetBool("isAttacking", true);
 
