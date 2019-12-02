@@ -5,11 +5,11 @@ using UnityEngine;
 public class RoundManager : MonoBehaviour
 {
     EnemyPool pool;
+    int poolSize;
     EnemySpawner gameSpawner;
+    public DoorLever doorLever;
+    public bool waveActive;
 
-    public static bool playerHasHitLever;
-    public static bool roundComplete;
-    public static bool waveComplete;
     public static int roundNum, waveNum, waveCountPerRound;
     private float waveCD, waveTimer;
 
@@ -33,25 +33,22 @@ public class RoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckWaveCompleteStatus();
-        if (playerHasHitLever)
+        if (waveActive)
         {
-            if (waveComplete)
+            CheckWaveCompleteStatus();
+            waveTimer += Time.deltaTime;
+            if (waveTimer >= waveCD)
             {
-                waveTimer += Time.deltaTime;
-                if (waveTimer >= waveCD)
+                waveTimer = 0;
+                waveNum++;
+                if (waveNum == 5)
                 {
-                    waveTimer = 0;
-                    waveNum++;
-                    if (waveNum == 5)
-                    {
-                        SpawnWave(roundNum, waveNum);
-                        roundNum++;
-                        waveNum = 1;
-                    }
+                    SpawnWave(roundNum, waveNum);
+                    roundNum++;
+                    waveNum = 1;
                 }
             }
-        }        
+        }     
     }
 
 
@@ -61,21 +58,28 @@ public class RoundManager : MonoBehaviour
         {
             if (pool.enemyObjects[i].activeSelf)
             {
-                waveComplete = false;
-                return waveComplete;
+                waveActive = false;
+                return waveActive;
             }
             else
             {
-                waveComplete = true;
-                return waveComplete;
+                waveActive = true;
+                return waveActive;
             }
         }
-        waveComplete = true;
-        return waveComplete;
+        waveActive = true;
+        return waveActive;
     }
 
     private void SpawnWave(int round, int wave)
     {
-        gameSpawner.SpawnWave(round, wave);
+        poolSize = (round * enemyRoundModifier) + (wave * enemyWaveModifier);
+        pool.CreatePool(poolSize);
+        gameSpawner.Spawn();
+    }
+
+    private bool CheckLeverStatus()
+    {
+        return doorLever.isOn;
     }
 }

@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
 
     // Update is called once per frame
 
-    private void Spawn()
+    public void Spawn()
     {
         //this gets the objects from the enemy pool, moves them and then actives them while there are still objects in the pool
         do
@@ -43,10 +43,4 @@ public class EnemySpawner : MonoBehaviour
 
         }while (EnemyPool.SharedInstance.GetPooledObject() != null) ;
     }
-
-    public void SpawnWave(int round, int wave)
-    {
-
-    }
-
 }
