@@ -17,11 +17,20 @@ public class RarePerk : PerkObject
     public int jumpCount;
     public int lifesteal;
 
+    public override void AddPerk()
+    {
+        throw new System.NotImplementedException();
+    }
 
     public void Awake()
     {
         // This is so we dont have to set the type everytime we make one
 
         type = PerkType.Rare;
+    }
+
+    public override void Initialize()
+    {
+        throw new System.NotImplementedException();
     }
 }

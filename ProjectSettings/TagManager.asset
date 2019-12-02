@@ -17,6 +17,8 @@ TagManager:
   - PerkTest
   - Ground
   - Projectile
+  - Undefined
+  - HealthPerk1
   layers:
   - Default
   - TransparentFX

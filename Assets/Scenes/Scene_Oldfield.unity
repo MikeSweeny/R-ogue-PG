@@ -409,6 +409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Defence_Perk3
       objectReference: {fileID: 0}
+    - target: {fileID: 3628696263511426080, guid: 91516bc88a22a01498708117fb434184,
+        type: 3}
+      propertyPath: m_TagString
+      value: HealthPerk1
+      objectReference: {fileID: 0}
     - target: {fileID: 3628696263511595008, guid: 91516bc88a22a01498708117fb434184,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -464,7 +469,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: -2456359443500014648, guid: 91516bc88a22a01498708117fb434184,
+        type: 3}
+      propertyPath: perk
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b3f2f818db3b4344a1935ac2c5fef4f,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: -2008873025027542260, guid: 91516bc88a22a01498708117fb434184, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 91516bc88a22a01498708117fb434184, type: 3}
 --- !u!1 &127399434
 GameObject:
@@ -599,6 +611,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160980292}
   m_CullTransparentMesh: 0
+--- !u!1 &198686436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3628696263511426080, guid: 5c5c224b5970f2a43a8ccce39bf79d33,
+    type: 3}
+  m_PrefabInstance: {fileID: 578640752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &198686437
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198686436}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7259082
+  m_Center: {x: 0, y: 1.04251545e-16, z: -0.03894295}
 --- !u!1 &304813469
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +1010,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6cf65bbeab3ef442b868c3598f43b34, type: 3}
+--- !u!1 &566991181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3628696263511426080, guid: 400b9757256296d41aa51e3d48ab9332,
+    type: 3}
+  m_PrefabInstance: {fileID: 1882365503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &566991182
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566991181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7259082
+  m_Center: {x: 0, y: 1.04251545e-16, z: -0.03894295}
 --- !u!1001 &578640752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -990,6 +1040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Defence_Perk1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628696263511426080, guid: 5c5c224b5970f2a43a8ccce39bf79d33,
+        type: 3}
+      propertyPath: m_TagString
+      value: HealthPerk1
       objectReference: {fileID: 0}
     - target: {fileID: 3628696263511595008, guid: 5c5c224b5970f2a43a8ccce39bf79d33,
         type: 3}
@@ -1046,7 +1101,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: -6852135966070561008, guid: 5c5c224b5970f2a43a8ccce39bf79d33,
+        type: 3}
+      propertyPath: perk
+      value: 
+      objectReference: {fileID: 11400000, guid: 392440a36d462d64da2f8d910b6ad11a,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: 5675667568310609734, guid: 5c5c224b5970f2a43a8ccce39bf79d33, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c5c224b5970f2a43a8ccce39bf79d33, type: 3}
 --- !u!1001 &685579603
 PrefabInstance:
@@ -2769,6 +2831,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3294876752712499046, guid: afba068958e57ce40b06502772429432,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3294876752712499046, guid: afba068958e57ce40b06502772429432,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3294876752712499046, guid: afba068958e57ce40b06502772429432,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3294876752712499046, guid: afba068958e57ce40b06502772429432,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afba068958e57ce40b06502772429432, type: 3}
 --- !u!1 &1088510380
@@ -2829,8 +2911,8 @@ GameObject:
   - component: {fileID: 1135842160}
   - component: {fileID: 1135842164}
   - component: {fileID: 1135842163}
-  - component: {fileID: 1135842162}
   - component: {fileID: 1135842161}
+  - component: {fileID: 1135842162}
   - component: {fileID: 1135842165}
   m_Layer: 0
   m_Name: Player
@@ -2869,17 +2951,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 1088510380}
-  currentHealth: 100
-  maxHealth: 100
+  currentHealth: 0
+  maxHealth: 0
   bones: 0
   jumpCount: 0
+  numTimesJumped: 0
   lifesteal: 0
   projMod_SpreadCount: 0
   attackCD: 0
   defense: 0
-  projMod_Speed: 50
+  projMod_Speed: 0
   projMod_Damage: 0
-  projMod_Spread: 5
+  projMod_Spread: 0
+  isGrounded: 0
   projectilePool: {fileID: 1739943267}
   pauseMenu: {fileID: 899016770}
   perkSystem: {fileID: 11400000, guid: 1b07a7abd62e6f740bb80484c408189b, type: 2}
@@ -2939,7 +3023,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 0
   currentHealth: 0
-  player: {fileID: 1135842161}
+  bones: 0
+  jumpCount: 0
+  lifesteal: 0
+  projMod_SpreadCount: 0
+  attackCD: 0
+  defense: 0
+  projMod_Speed: 0
+  projMod_Damage: 0
+  projMod_Spread: 0
 --- !u!1 &1217371563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4430,6 +4522,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656617367}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1664718329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3628696263511426080, guid: 91516bc88a22a01498708117fb434184,
+    type: 3}
+  m_PrefabInstance: {fileID: 83725610}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1664718330
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664718329}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7259082
+  m_Center: {x: 0, y: 1.04251545e-16, z: -0.03894295}
 --- !u!1 &1702277054
 GameObject:
   m_ObjectHideFlags: 0
@@ -4874,6 +4985,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Defence_Perk2
       objectReference: {fileID: 0}
+    - target: {fileID: 3628696263511426080, guid: 400b9757256296d41aa51e3d48ab9332,
+        type: 3}
+      propertyPath: m_TagString
+      value: HealthPerk1
+      objectReference: {fileID: 0}
     - target: {fileID: 3628696263511595008, guid: 400b9757256296d41aa51e3d48ab9332,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4929,7 +5045,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: -5261920311184334139, guid: 400b9757256296d41aa51e3d48ab9332,
+        type: 3}
+      propertyPath: perk
+      value: 
+      objectReference: {fileID: 11400000, guid: 822f55c00d341f6479c36fa37beb0a8a,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: -8729808209442325412, guid: 400b9757256296d41aa51e3d48ab9332, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 400b9757256296d41aa51e3d48ab9332, type: 3}
 --- !u!1001 &1900738382
 PrefabInstance:
@@ -5184,6 +5307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345424b4ab276fb448e394d2cb2d3b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1135842162}
+  playerManager: {fileID: 1135842161}
 --- !u!114 &1975548174
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class BloodAlter : Interactable
 {
+    //variables used
     private static int maxBlood = 5;
     private int minBlood = 0;
     private int bloodRegen = 0;
     private static int currentBlood = maxBlood;
     private int timer = 0;
+    //The blood game object inside the tube that will move
     public GameObject blood;
+
     PlayerManager pM;
+    public AudioSource sfx;
 
     public bool startCountDown = false;
+
     // Update is called once per frame
     public void Start()
     {
@@ -26,6 +31,7 @@ public class BloodAlter : Interactable
     {
         if (pM.GetHealth() < pM.GetMaxHealth() && currentBlood > minBlood && pM.GetBones() > 0)
         {
+            sfx.Play();
             pM.SetBones(-1);
             currentBlood = currentBlood - 1;
             pM.SetHealth(+20);
