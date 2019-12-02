@@ -23,6 +23,9 @@ public abstract class PerkObject : ScriptableObject
     [TextArea(15, 15)]
     public string description;
 
+    public abstract void Initialize(); // Sets up the Perk after its been setup in the Editor
+    public abstract void AddPerk();     // Function to add each perk to the player
+
 }
 [System.Serializable]
 public class perk
