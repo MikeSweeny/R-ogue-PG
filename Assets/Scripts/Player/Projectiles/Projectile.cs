@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
         transform.position = (spawnPos);
         Vector3 lookPos = playerManager.head.transform.forward;
         lookPos.x = Random.Range(lookPos.x - projMod_Spread, lookPos.x + projMod_Spread);
-        lookPos.y = Random.Range(lookPos.y - projMod_Spread, lookPos.y + projMod_Spread);
+        //lookPos.y = Random.Range(lookPos.y - projMod_Spread, lookPos.y + projMod_Spread);
         transform.forward = lookPos;
     }
 
