@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2387,6 +2387,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Knight
       objectReference: {fileID: 0}
+    - target: {fileID: 753515859504100838, guid: 4b8d8a1690fbd494e9aae7c9af1d6c1c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 753515859504100832, guid: 4b8d8a1690fbd494e9aae7c9af1d6c1c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2466,6 +2471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909399334951531179, guid: a742d6f3d9083cc4e942ed9cb5d76032,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2909399334951531181, guid: a742d6f3d9083cc4e942ed9cb5d76032,
         type: 3}
@@ -2655,6 +2665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Footsoldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514782732652622648, guid: e909e5ebc59cd19459bfe230fe223012,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6514782732652622651, guid: e909e5ebc59cd19459bfe230fe223012,
         type: 3}
