@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         statePaused.UnPauseGame();
     }
 
-    public void NewGameState(State newState)
+    public void NewGameState(GameState newState)
     {
         if (currentState != null)
         {
