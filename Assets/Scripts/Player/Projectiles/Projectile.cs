@@ -60,11 +60,14 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        inAir = false;
-        ReturnToPool();
-        if (other.gameObject.CompareTag("Enemy"))
+        if (!(other.gameObject.CompareTag("Projectile")))
         {
-            //ApplyDamage();
+            inAir = false;
+            ReturnToPool();
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                //ApplyDamage();
+            }
         }
     }
 

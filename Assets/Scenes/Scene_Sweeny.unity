@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectiles: []
-  prefab_Projectile: {fileID: 1900756431413560, guid: 529eb4216865eba419c1a4a68d0b0388,
+  prefab_Projectile: {fileID: 1692517446758730, guid: fdb49a9ae44064143bc2444bb4c53358,
     type: 3}
 --- !u!4 &605562307
 Transform:

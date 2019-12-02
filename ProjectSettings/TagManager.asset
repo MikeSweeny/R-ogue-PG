@@ -16,6 +16,7 @@ TagManager:
   - DamageCube
   - PerkTest
   - Ground
+  - Projectile
   layers:
   - Default
   - TransparentFX

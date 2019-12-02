@@ -80,12 +80,12 @@ public class PlayerManager : MonoBehaviour
         bones = 0;
         jumpCount = 1;
         lifesteal = 0;
-        projMod_SpreadCount = 1;
+        projMod_SpreadCount = 5;
         attackCD = 1.5f;
         defense = 10f;
         projMod_Speed = 50f;
         projMod_Damage = 5f;
-        projMod_Spread = 0.05f; /// Increment this by like 0.05 because it is very touchy
+        projMod_Spread = 0.07f; /// Increment this by like 0.01 because it is very touchy
     }
         // ****************** HERE IS THE BASE STATS ****************** //
 
