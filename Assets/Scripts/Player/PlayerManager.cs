@@ -48,8 +48,8 @@ public class PlayerManager : MonoBehaviour
     bool hover = false;     /// Call by these names in strings
 
     // References to self
-    Rigidbody body;
-    PlayerController controller;
+    //Rigidbody body;
+    //PlayerController controller;
 
     // Misc player variables
     public ProjectilePool projectilePool;
@@ -59,7 +59,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        controller = GetComponent<PlayerController>();
+        //controller = GetComponent<PlayerController>();
 
         projectilePool = transform.GetChild(2).GetComponent<ProjectilePool>();
         projectilePool.PopulatePool();
@@ -69,7 +69,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         head = gameObject.transform.GetChild(0).gameObject;
-        body = GetComponent<Rigidbody>();
+        //body = GetComponent<Rigidbody>();
         // ****************** HERE IS THE BASE STATS ****************** //
         SetBaseStats();
     }
