@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pj_StateHit : State
+public class Pj_StateHit : ProjectileState
 {
-    public Pj_StateHit(GameManager gm) : base(gm) { }
+    public Pj_StateHit(Projectile p) : base(p) { }
     public override void StateEnter()
     {
 

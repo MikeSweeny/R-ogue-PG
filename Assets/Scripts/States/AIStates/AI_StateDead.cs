@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI_StateDead : State
+public class AI_StateDead : AIState
 {
-    public AI_StateDead(GameManager gm) : base(gm) { }
+    public AI_StateDead(AiController ai) : base(ai) { }
     public override void StateEnter()
     {
 

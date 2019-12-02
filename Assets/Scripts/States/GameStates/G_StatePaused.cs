@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class G_StatePaused : State
+public class G_StatePaused : GameState
 {
     public G_StatePaused(GameManager gm) : base(gm) { }
 

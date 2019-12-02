@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State
+public abstract class PlayerState
 {
-    protected GameManager m_gameManager;
-    public State(GameManager gm)
+    protected PlayerManager m_playerManager;
+    public PlayerState(PlayerManager pm)
     {
-        m_gameManager = gm;
+        m_playerManager = pm;
     }
 
     public abstract void StateEnter();

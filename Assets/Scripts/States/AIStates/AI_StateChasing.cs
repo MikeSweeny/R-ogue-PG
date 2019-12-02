@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI_StateChasing : State
+public class AI_StateChasing : AIState
 {
-    public AI_StateChasing(GameManager gm) : base(gm) { }
+    public AI_StateChasing(AiController ai) : base(ai) { }
     public override void StateEnter()
     {
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pj_StateInPool : State
+public class Pj_StateInPool : ProjectileState
 {
-    public Pj_StateInPool(GameManager gm) : base(gm) { }
+    public Pj_StateInPool(Projectile p) : base(p) { }
     public override void StateEnter()
     {
 

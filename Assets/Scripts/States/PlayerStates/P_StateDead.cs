@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class P_StateDead : State
+public class P_StateDead : PlayerState
 {
-    public P_StateDead(GameManager gm) : base(gm) { }
+    public P_StateDead(PlayerManager pm) : base(pm) { }
     public override void StateEnter()
     {
         Debug.Log("State: Dead");

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class G_StateStartMenu : State
+public class G_StateStartMenu : GameState
 {
     public G_StateStartMenu(GameManager gm) : base(gm) { }
     // Start is called before the first frame update

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class G_StatePlaying : State
+public class G_StatePlaying : GameState
 {
     public G_StatePlaying(GameManager gm) : base(gm) { }
 

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public G_StateStartMenu stateMenu { get; set; }
     public G_StatePlaying statePlaying { get; set; }
 
-    public State currentState;
+    public GameState currentState;
     public static GameManager Instance = null;
 
     // Objects for state machine to handle
