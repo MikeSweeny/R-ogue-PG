@@ -85,7 +85,7 @@ public class PlayerManager : MonoBehaviour
         defense = 10f;
         projMod_Speed = 50f;
         projMod_Damage = 5f;
-        projMod_Spread = 5f;
+        projMod_Spread = 0.05f; /// Increment this by like 0.05 because it is very touchy
     }
         // ****************** HERE IS THE BASE STATS ****************** //
 

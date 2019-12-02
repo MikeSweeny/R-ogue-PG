@@ -58,10 +58,13 @@ public class PlayerController : MonoBehaviour
         // Other input controls
         if (Input.GetButtonDown("Fire1"))
         {
-            GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();
-            tempProj.gameObject.SetActive(true);
+            for (int i = 0; i < playerManager.GetProjSpreadCount(); i++)
+            {
+                GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();
+                tempProj.gameObject.SetActive(true);
 
-            Debug.Log("PEW");
+                Debug.Log("PEW");
+            }
         }
         if (Input.GetButtonDown("Jump"))
         {
