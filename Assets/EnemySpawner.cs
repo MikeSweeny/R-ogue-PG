@@ -44,4 +44,9 @@ public class EnemySpawner : MonoBehaviour
         }while (EnemyPool.SharedInstance.GetPooledObject() != null) ;
     }
 
+    public void SpawnWave(int round, int wave)
+    {
+
+    }
+
 }
