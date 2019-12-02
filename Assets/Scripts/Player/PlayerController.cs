@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private Animator _animator;
     Interactable interactObject;
     Transform headPosition;
     float lookRotation;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
         playerManager = SceneManager.Instance.GetPlayerManager();
         body = GetComponent<Rigidbody>();
         headPosition = transform.GetChild(0).transform;
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Awake()
@@ -49,6 +51,12 @@ public class PlayerController : MonoBehaviour
         //Making the body move according to axis input (should work for controllers too)
         var h = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         var v = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+
+        var x = Input.GetAxis("Horizontal");
+        var y = Input.GetAxis("Vertical");
+
+        PlayerAnimMovement(x, y);
+
         var newPos = new Vector3(h, 0, v);
 
         newPos = newPos.normalized * moveSpeed * Time.deltaTime;
@@ -58,6 +66,16 @@ public class PlayerController : MonoBehaviour
         // Other input controls
         if (Input.GetButtonDown("Fire1"))
         {
+            //Animation anim = Animator.GetCurrentAnimatorClipInfo
+.
+            _animator.StopPlayback();
+            _animator.SetBool("isAttacking", true);
+
+
+            //_animator.SetBool("isAttacking", true);
+
+            float attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
+            float attackCurrentTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
             for (int i = 0; i < playerManager.GetProjSpreadCount(); i++)
             {
                 GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();
@@ -66,6 +84,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("PEW");
             }
         }
+       
         if (Input.GetButtonDown("Jump"))
         {
             if (playerManager.GetNumTimesJumped() >= playerManager.GetJumpCount())
@@ -91,6 +110,11 @@ public class PlayerController : MonoBehaviour
         {
             // Pause Menu?(probably not)  --  State Change?(probably)
         }
+    }
+    private void PlayerAnimMovement(float x, float y)
+    {
+        _animator.SetFloat("VelX", x);
+        _animator.SetFloat("VelY", y);
     }
 
     public void SetInteractObject(Interactable iObj)

@@ -52,8 +52,6 @@ public class AiController : MonoBehaviour
     {
         if (currentState == stateChasing)
         {
-
-
             agent.SetDestination(target.position);
 
             myVelocity = myRigidbody.velocity;
@@ -97,8 +95,18 @@ public class AiController : MonoBehaviour
         if (currentState == stateAttacking)
         {
             _animator.SetBool("isAttacking", true);
+            float attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
+            float attackCurrentTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+
+
+            if (attackCurrentTime >= attackAnimTime)
+            {
+                x = 0;
+                y = 0;
+                EnemyMovement(x, y);
+                NewAIState(stateChasing);
+            }
             
-            x = 1;
 
         }
         else
@@ -112,7 +120,6 @@ public class AiController : MonoBehaviour
             x = 0;
             y = 0;
             EnemyMovement(x, y);
-
 
             this.gameObject.SetActive(false);
         }
