@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BloodAlter : Interactable
 {
-    public Transform currentZ;
-    private static int maxBlood = 100;
+    private static int maxBlood = 5;
     private int minBlood = 0;
+    private int bloodRegen = 0;
     private static int currentBlood = maxBlood;
     private int timer = 0;
     public GameObject blood;
@@ -21,10 +21,6 @@ public class BloodAlter : Interactable
     void Update()
     {
         CountDown();
-        if (currentBlood == 0)
-        {
-            startCountDown = true;
-        }
     }
     public override void Act()
     {
@@ -32,25 +28,36 @@ public class BloodAlter : Interactable
         {
             pM.SetBones(-1);
             currentBlood = currentBlood - 1;
-            pM.SetHealth(+1);
-            Vector3 temp = blood.transform.position;
-            temp.z -= 5;
-            Vector3 newPosition = new Vector3(blood.transform.position.x, blood.transform.position.y, temp.z);
+            pM.SetHealth(+20);
+            blood.transform.position -= transform.up;
+            if(pM.GetHealth() > 1000)
+            {
+                pM.SetHealth(1000 - pM.GetHealth());
+            }
+        }
+        if (currentBlood == 0)
+        {
+            startCountDown = true;
         }
     }
     public void CountDown()
     {
         if(startCountDown)
         {
+            Debug.Log(timer);
             timer++;
-            if (timer == 300 && currentBlood >= minBlood && currentBlood < maxBlood)
+            if (timer == 500)
             {
-                Vector3 resetPosition = new Vector3(blood.transform.position.x, blood.transform.position.y, 3);
-            }
-            if (timer == 300)
-            {
+                blood.transform.position += transform.up;
+                bloodRegen = bloodRegen + 1;
                 timer = 0;
-                startCountDown = false;
+                if (bloodRegen == 5)
+                {
+                    timer = 0;
+                    bloodRegen = 0;
+                    currentBlood = 5;
+                    startCountDown = false;
+                }
             }
         }
     }
