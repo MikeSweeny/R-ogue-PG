@@ -72,15 +72,7 @@ public class PlayerController : MonoBehaviour
         // Other input controls
         if (Input.GetButtonDown("Fire1"))
         {
-            //Animation anim = Animator.GetCurrentAnimatorClipInfo
-            //_animator.StopPlayback();
-
-            //_animator.SetBool("isAttacking", true);
-
-
-            //_animator.SetBool("isAttacking", true);
-
-            //attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
+            _animator.ResetTrigger("isAttacking");
             _animator.SetTrigger("isAttacking");
 
             for (int i = 0; i < playerManager.GetProjSpreadCount(); i++)
@@ -92,13 +84,7 @@ public class PlayerController : MonoBehaviour
             }
         
 
-        } 
-        /*attackCurrentTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-        if (attackCurrentTime >= attackAnimTime)
-        {
-            _animator.SetBool("isAttacking", false);
-
-        }*/
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
