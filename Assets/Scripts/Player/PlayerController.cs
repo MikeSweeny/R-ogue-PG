@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
             _animator.ResetTrigger("isAttacking");
             _animator.SetTrigger("isAttacking");
 
+
             for (int i = 0; i < playerManager.GetProjSpreadCount(); i++)
             {
                 GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();

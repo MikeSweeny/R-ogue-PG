@@ -17,11 +17,12 @@ public class AiController : MonoBehaviour
     private float x = 0;
     private float y = 0;
 
+    private float tic;
+
     public Transform target;
 
     private Collider attackRange;
     private NavMeshAgent agent;
-    private bool isAttacking = false;
 
     private Rigidbody myRigidbody;
 
@@ -94,26 +95,24 @@ public class AiController : MonoBehaviour
         }
         if (currentState == stateAttacking)
         {
-            _animator.SetBool("isAttacking", true);
+            _animator.SetTrigger("isAttacking");
             float attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
-            float attackCurrentTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            //float attackCurrentTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
-
-            if (attackCurrentTime >= attackAnimTime)
+            tic = tic + 0.1f;
+            
+            if (tic >= attackAnimTime)
             {
                 x = 0;
                 y = 0;
                 EnemyMovement(x, y);
+                _animator.ResetTrigger("isAttacking");
                 NewAIState(stateChasing);
             }
             
 
         }
-        else
-        {
-            _animator.SetBool("isAttacking", false);
-
-        }
+        
 
         if (currentState == stateDead)
         {
@@ -142,7 +141,7 @@ public class AiController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.name == "ModelPlayer_T-Pose")
+        if (other.gameObject.tag == "Player")
         {
             NewAIState(stateAttacking);
 
