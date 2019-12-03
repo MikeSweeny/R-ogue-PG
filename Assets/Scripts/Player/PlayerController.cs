@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         playerManager = SceneManager.Instance.GetPlayerManager();
         body = GetComponent<Rigidbody>();
         headPosition = transform.GetChild(0).transform;
-        _animator = GetComponentInChildren<Animator>();
+        //_animator = GetComponentInChildren<Animator>();
     }
 
     private void Awake()
@@ -75,12 +75,12 @@ public class PlayerController : MonoBehaviour
             //Animation anim = Animator.GetCurrentAnimatorClipInfo
             //_animator.StopPlayback();
 
-            _animator.SetBool("isAttacking", true);
+            //_animator.SetBool("isAttacking", true);
 
 
             //_animator.SetBool("isAttacking", true);
 
-            attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
+            //attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
 
             for (int i = 0; i < playerManager.GetProjSpreadCount(); i++)
             {
