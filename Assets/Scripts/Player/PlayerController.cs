@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
 
-        PlayerAnimMovement(x, y);
+        //PlayerAnimMovement(x, y);
 
         var newPos = new Vector3(h, 0, v);
 
@@ -92,12 +92,12 @@ public class PlayerController : MonoBehaviour
         
 
         } 
-        attackCurrentTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+        /*attackCurrentTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
         if (attackCurrentTime >= attackAnimTime)
         {
             _animator.SetBool("isAttacking", false);
 
-        }
+        }*/
 
         if (Input.GetButtonDown("Jump"))
         {
