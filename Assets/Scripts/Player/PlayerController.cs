@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         playerManager = SceneManager.Instance.GetPlayerManager();
         body = GetComponent<Rigidbody>();
         headPosition = transform.GetChild(0).transform;
-        //_animator = GetComponentInChildren<Animator>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Awake()
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
 
-        //PlayerAnimMovement(x, y);
+        PlayerAnimMovement(x, y);
 
         var newPos = new Vector3(h, 0, v);
 
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
            
         // Other input controls
         if (Input.GetButtonDown("Fire1"))
-        { 
+        {
             //Animation anim = Animator.GetCurrentAnimatorClipInfo
             //_animator.StopPlayback();
 
@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
             //_animator.SetBool("isAttacking", true);
 
             //attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
+            _animator.SetTrigger("isAttacking");
 
             for (int i = 0; i < playerManager.GetProjSpreadCount(); i++)
             {
