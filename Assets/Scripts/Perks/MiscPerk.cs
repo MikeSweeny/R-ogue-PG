@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Misc Perk", menuName = "Perks/Misc")]
 public class MiscPerk : PerkObject
 {
+    public int lifestealPct;
     public override void AddPerk()
     {
         throw new System.NotImplementedException();

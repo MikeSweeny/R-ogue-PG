@@ -17,8 +17,28 @@ TagManager:
   - PerkTest
   - Ground
   - Projectile
-  - Undefined
   - HealthPerk1
+  - HealthPerk2
+  - HealthPerk3
+  - DefencePerk1
+  - DefencePerk2
+  - DefencePerk3
+  - AttackPerk1
+  - AttackPerk2
+  - AttackPerk3
+  - MiscPerk1
+  - MiscPerk2
+  - MiscPerk3
+  - RarePerk1
+  - RarePerk2
+  - RarePerk3
+  - RarePerk4
+  - RarePerk5
+  - RarePerk6
+  - RarePerk7
+  - SpeedPerk1
+  - SpeedPerk2
+  - SpeedPerk3
   layers:
   - Default
   - TransparentFX

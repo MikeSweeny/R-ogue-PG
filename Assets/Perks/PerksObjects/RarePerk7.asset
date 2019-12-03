@@ -9,14 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3277546da5c2e2e4a98aec798547d8a7, type: 3}
-  m_Name: Health Perk 1
+  m_Script: {fileID: 11500000, guid: 75e73cde972242e4099333776a30ce96, type: 3}
+  m_Name: RarePerk7
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 15
   name: 
-  pedGem: {fileID: 0}
+  type: 3
+  pedGem: {fileID: 2054959127786256886, guid: 0e4d8f256dc5f14429f7d30267a71654, type: 3}
   IsStackable: 0
   displayIcon: {fileID: 0}
   description: 
-  healthIncrease: 100
-  currentHealthIncrease: 0
+  seeking: 0
+  magnet: 0
+  lottery: 0
+  levitate: 0
+  explosive: 0
+  hover: 0
+  spreadCount: 3
+  bonesCollected: 0
+  jumpCount: 0
+  lifesteal: 0

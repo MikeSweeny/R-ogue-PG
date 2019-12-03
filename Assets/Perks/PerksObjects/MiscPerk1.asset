@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08a1c08ab6886d468d1862bb13d39c8, type: 3}
+  m_Name: MiscPerk1
+  m_EditorClassIdentifier: 
+  ID: 0
+  name: 
+  type: 4
+  pedGem: {fileID: 2054959127786256886, guid: 7283f9e48bf84a6478283770430c5f98, type: 3}
+  IsStackable: 0
+  displayIcon: {fileID: 21300000, guid: d75ff5c4cba0f4c45beb8641a1f60675, type: 3}
+  description: 

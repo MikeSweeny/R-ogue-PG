@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd54bf693800f27498cf2b3298c01d1f, type: 3}
+  m_Name: SpeedPerk1
+  m_EditorClassIdentifier: 
+  ID: 16
+  name: 
+  type: 1
+  pedGem: {fileID: 2054959127786256886, guid: 33c566f7059d4bb47b547cbaf738ad88, type: 3}
+  IsStackable: 0
+  displayIcon: {fileID: 21300000, guid: d6c3078347596e74ba7c7b337b5b3a9a, type: 3}
+  description: 
+  speedIncrease: 1
