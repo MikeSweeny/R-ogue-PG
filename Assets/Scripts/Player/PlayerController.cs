@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
         { 
             //Animation anim = Animator.GetCurrentAnimatorClipInfo
             //_animator.StopPlayback();
+
             _animator.SetBool("isAttacking", true);
 
 

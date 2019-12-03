@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 5421874322302575142}
   m_Layer: 0
   m_Name: LeverBacking
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 6446468328073937079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -35.06219, y: 3.0221937, z: -10.149225}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.621, y: 1.621, z: 1.621}
   m_Children:
   - {fileID: 6740794374240059926}
   - {fileID: 4756466878611272260}
@@ -237,6 +237,8 @@ MonoBehaviour:
   libraryDoor: {fileID: 0}
   leverOn: {fileID: 8679024838878522371}
   leverOff: {fileID: 2552223167878389074}
+  audioIdle: {fileID: 0}
+  audioBattle: {fileID: 0}
 --- !u!135 &2181431601987889947
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -248,8 +250,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.1637435
-  m_Center: {x: 1.1737431, y: 0.29999924, z: -0.40000013}
+  m_Radius: 5.0880427
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8679024838878522371
 GameObject:
   m_ObjectHideFlags: 0

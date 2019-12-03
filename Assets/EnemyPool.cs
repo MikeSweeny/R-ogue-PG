@@ -25,14 +25,9 @@ public class EnemyPool : MonoBehaviour
     private void Awake()
     {
         SharedInstance = this;
-
-        //READ THIS COMMENT         *** When complete, delete this function call ***
-
-        CreatePool(15);
-
     }
     // Start is called before the first frame update
-    private void CreatePool(int waveSize)
+    public void CreatePool(int waveSize)
     {
         enemyObjects = new List<GameObject>();
 
