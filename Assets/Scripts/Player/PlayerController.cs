@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Animator _animator;
+    float attackAnimTime;
+    float attackCurrentTime;
+
+
     Interactable interactObject;
     Transform headPosition;
     float lookRotation;
@@ -63,19 +67,20 @@ public class PlayerController : MonoBehaviour
         newPos = transform.worldToLocalMatrix.inverse * newPos;
         body.MovePosition(transform.position + newPos);
 
+
+           
         // Other input controls
         if (Input.GetButtonDown("Fire1"))
-        {
+        { 
             //Animation anim = Animator.GetCurrentAnimatorClipInfo
-.
-            _animator.StopPlayback();
+            //_animator.StopPlayback();
             _animator.SetBool("isAttacking", true);
 
 
             //_animator.SetBool("isAttacking", true);
 
-            float attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
-            float attackCurrentTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
+
             for (int i = 0; i < playerManager.GetProjSpreadCount(); i++)
             {
                 GameObject tempProj = playerManager.projectilePool.FetchObjectFromPool();
@@ -83,8 +88,16 @@ public class PlayerController : MonoBehaviour
 
                 Debug.Log("PEW");
             }
+        
+
+        } 
+        attackCurrentTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+        if (attackCurrentTime >= attackAnimTime)
+        {
+            _animator.SetBool("isAttacking", false);
+
         }
-       
+
         if (Input.GetButtonDown("Jump"))
         {
             if (playerManager.GetNumTimesJumped() >= playerManager.GetJumpCount())
