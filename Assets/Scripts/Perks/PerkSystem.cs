@@ -12,7 +12,7 @@ public class PerkSystem : ScriptableObject
     {
         if (_perk.IsStackable == false)
         {
-            container.perk.Add(new PerkSlot(_perk.ID, _perk, _amount));
+            container.perk.Add(new PerkSlot(_perk.ID, _perk, _amount, _perk.displayIcon));
             return;
         }
         for (int i = 0; i < container.perk.Count; i++)
@@ -23,7 +23,7 @@ public class PerkSystem : ScriptableObject
                 return;
             }
         }
-        container.perk.Add(new PerkSlot(_perk.ID, _perk, _amount));
+        container.perk.Add(new PerkSlot(_perk.ID, _perk, _amount, _perk.displayIcon));
 
     }
 }
@@ -40,12 +40,13 @@ public class PerkSlot
     public int ID;
     public PerkObject perk;
     public int amount;
-    public PerkSlot(int _id, PerkObject _perk, int _amount)
+    public GameObject PerkDisp;
+    public PerkSlot(int _id, PerkObject _perk, int _amount, GameObject _disp)
     {
         ID = _id;
         perk = _perk;
         amount = _amount;
-
+        PerkDisp = _disp;
     }
 
     public void AddAmount(int value)

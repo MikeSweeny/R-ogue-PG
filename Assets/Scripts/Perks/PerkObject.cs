@@ -17,9 +17,8 @@ public abstract class PerkObject : ScriptableObject
     public int ID;
     public new string name;
     public PerkType type;
-    public GameObject pedGem;
     public bool IsStackable;
-    public Sprite displayIcon;
+    public GameObject displayIcon;
     [TextArea(15, 15)]
     public string description;
 
@@ -33,10 +32,12 @@ public class perk
     public string name;
     public int ID;
     public bool isStackable;
+    public GameObject displayIcon;
     public perk(PerkObject perk)
     {
         isStackable = perk.IsStackable;
         name = perk.name;
         ID = perk.ID;
+        displayIcon = perk.displayIcon;
     }
 }
