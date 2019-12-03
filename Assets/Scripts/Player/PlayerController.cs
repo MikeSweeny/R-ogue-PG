@@ -81,7 +81,10 @@ public class PlayerController : MonoBehaviour
             //_animator.SetBool("isAttacking", true);
 
             //attackAnimTime = _animator.GetCurrentAnimatorStateInfo(0).length;
+            _animator.ResetTrigger("isAttacking");
+
             _animator.SetTrigger("isAttacking");
+
 
             for (int i = 0; i < playerManager.GetProjSpreadCount(); i++)
             {

@@ -20,7 +20,7 @@ public class Enemy_Damage : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.name == "ModelPlayer_T-Pose")
+        if (other.gameObject.tag == "Player")
         {
             Debug.Log("Hit");
         }
